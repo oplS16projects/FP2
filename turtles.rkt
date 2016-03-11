@@ -19,9 +19,9 @@
 ;; https://docs.racket-lang.org/racket_turtle/racket_turtle_examples_with_recursion.html
 (define spiral-image
   (list (change-pen-size 1)         ;; I made this smaller.
-        (change-bg-color "black")
+        (change-bg-color "black")   ;; Background color is black.
         (change-color COLORS1)      ;; I changed the colors around.
-        (spiral 911 11 1512)))      ;; Honestly I just tweaked this til it was cool.
+        (spiral 911 11 1512)))      ;; Honestly I just tweaked this until it was cool.
 ;(draw spiral-image)
 
 ;; This image is just a bunch of random changes to see what pops up.
@@ -46,11 +46,27 @@
         (spiral 100 0 1022)))
 
 ;; Third image to print.
-(draw spiral-image3)
+;(draw spiral-image3)
 
 
+;; Let's modify the spiral function now.
+(define (spiral2 a x times)
+  (if (< times 0)
+      empty
+      ;; This part is tweaked to do some random stuff.
+      (append (list (forward x)(turn-left a)(turn-right (* a 15))(forward x))
+              (spiral a (+ x 44)(sub1 times)))))
 
-;; Let's make two more images and try and display them at the same time.
+(define spiral-image4
+  (list (change-pen-size 7)         ;; I made this larger so the lines are bigger.
+        (change-bg-color "white")
+        (change-color COLORS3)      ;; I added tons of colors
+        (spiral2 50 -2 1022)))      ;; Modified spiral function.
+
+;; Fourth image to print.
+(draw spiral-image4)
+
+
 
 
 
