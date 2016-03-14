@@ -36,7 +36,10 @@ For the final project exploration 2 assignment I explored a racket library that 
 
 (printBuffer rb)
 ```
+
 ###Output
+
+The ring buffer can hold different types like strings, ints, or booleans. Empty elements in the buffer default to the boolean false (#f).
 ```
 Length of Buffer: 5
 
