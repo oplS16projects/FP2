@@ -1,13 +1,13 @@
 #lang racket
 (require xml)
 
-;processing insruction
+; processing insruction
 (define proc-inst (p-i 'racket  ;processing instruction structure
                        'racket
                        'xml
                        "version='1.0' standalone='no'"))
 
-;prolog with SVG doc type declaration.
+; prolog with SVG doc type declaration.
 (define svg-prolog (prolog (list proc-inst) ;prolog structure
                      (document-type
                       'svg
@@ -17,7 +17,7 @@
                       #f)
                      '()))
 
-;xexpr defs of xml elements 
+; xexpr defs of xml elements 
 (define text-tag
   '(text ((x "50") ;attributes
           (y "120")
@@ -40,7 +40,7 @@
           (height "140")
           (fill "red"))))
 
-;complete document body xexpr definition
+; complete document body xexpr definition
 (define svg-body
   (list 'svg
          '((xmlns "http://www.w3.org/2000/svg")
@@ -52,14 +52,19 @@
          rect2-tag
          text-tag))
 
-;complete xml document
+; complete xml document
 (define svg-doc (document ;document structure
                  svg-prolog ;doc prolog
                  (xexpr->xml svg-body) ;doc body. xexpr to xml.
-                 '())) ;list of misc items
+                 '())) ;list of misc items, none
 
-;write xml document to file
-(define out (open-output-file ".\\racket.svg" #:exists 'replace))
-(write-xml svg-doc out)
-(close-output-port out)
+; define path, open file-stream, write to file
+; and close file-stream
+(define out-path
+  (string->path "./racket.svg")) ;OS independent path (hopefully)
+(define out (open-output-file ;open file-stream port
+             out-path
+             #:exists 'replace)) ;overwrite, if file exists
+(write-xml svg-doc out) ;write xml document to file
+(close-output-port out) ;close file-stream to finilize write
  
