@@ -1,60 +1,145 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: XML Parsing and Writing
+My name: Dmitri Kheifets
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## Scope:
+Exploring XML parsing/writing library and associated document structure type used to represent XML.
+The demo code is generating simple SVG (Scalable Vector Graphics) standard-compliant XML document, exporting results to .svg file.
+While it is possible to read-in complete XML template, here I'm manually constructing XML document with separate x-expressions
+and built-in structures to gain familiarity with document flow for possible future applications.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## Highlights:
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+Since Racket's base xml library doesn't preserve document type definitions (DTD),
+I'm manually constructing DTD portion of XML document using provided `prolog` structure: `(struct prolog (misc dtd misc2))`,
+where `dtd` is another structure `(struct document-type (name external inlined))`
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+> ```racket
+> (define svg-prolog (prolog (list proc-inst) ;prolog structure
+>                     (document-type
+>                      'svg
+>                      (external-dtd/public
+>                    "-//W3C//DTD SVG 1.1//EN"
+>                      "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd")
+>                     #f)
+>                    '()))
+> ```
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+-
+>##### SVG document rendering
+> ![#racket.png][racket.png]
+-
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+Above is an SVG rendering described with only two types of elements - `rect` and `text`
+Here, each type is represented with elements in form of x-expressions:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+> ```racket
+> (define text-tag
+>  '(text ((x "50")                ;attributes
+>          (y "120")
+>          (font-size "80")
+>          (font-family "Verdana")
+>          (fill "aliceblue"))
+>         "Racket"))               ;content
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+> (define rect1-tag
+>  '(rect ((x "0")
+>          (y "0")
+>          (width "400")
+>          (height "200")
+>          (fill "navy"))))
+> ```
 
-Code should be delivered in two ways:
+-
+A complete document is represented with `document` structure, `(struct document (prolog element misc)` combining previously defined prolog and a nested tree of elements in form of tree of structs. A list of x-expressions describing document's elements is converted to tree of structs using xexpr->xml. 
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+> ```racket
+> ; complete xml document
+> (define svg-doc (document              ;document struct
+>                 svg-prolog            ;doc prolog
+>                 (xexpr->xml svg-body) ;doc body, xexpr-to-xml
+>                 '()))                 ;list of misc items, none
+> ```
 
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+-
+Below is a printout of `document` structure of a complete SVG XML document:
+```text
+(document
+ (prolog
+  (list
+   (p-i
+    'racket
+    'racket
+    'xml
+    "version='1.0' standalone='no'"))
+  (document-type
+   'svg
+   (external-dtd/public
+    "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd")
+   #f)
+  '())
+ (element
+  'racket
+  'racket
+  'svg
+  (list
+   (attribute
+    'scheme
+    'scheme
+    'xmlns
+    "http://www.w3.org/2000/svg")
+   (attribute 'scheme 'scheme 'version "1.1")
+   (attribute 'scheme 'scheme 'width "400px")
+   (attribute 'scheme 'scheme 'height "200px")
+   (attribute
+    'scheme
+    'scheme
+    'viewbox
+    "0 0 400 200"))
+  (list
+   (element
+    'racket
+    'racket
+    'rect
+    (list
+     (attribute 'scheme 'scheme 'x "0")
+     (attribute 'scheme 'scheme 'y "0")
+     (attribute 'scheme 'scheme 'width "400")
+     (attribute 'scheme 'scheme 'height "200")
+     (attribute 'scheme 'scheme 'fill "navy"))
+    '())
+   (element
+    'racket
+    'racket
+    'rect
+    (list
+     (attribute 'scheme 'scheme 'x "25")
+     (attribute 'scheme 'scheme 'y "30")
+     (attribute 'scheme 'scheme 'width "340")
+     (attribute 'scheme 'scheme 'height "140")
+     (attribute 'scheme 'scheme 'fill "red"))
+    '())
+   (element
+    'racket
+    'racket
+    'text
+    (list
+     (attribute 'scheme 'scheme 'x "50")
+     (attribute 'scheme 'scheme 'y "120")
+     (attribute 'scheme 'scheme 'font-size "80")
+     (attribute
+      'scheme
+      'scheme
+      'font-family
+      "Verdana")
+     (attribute
+      'scheme
+      'scheme
+      'fill
+      "aliceblue"))
+    (list (pcdata 'racket 'racket "Racket")))))
+ '())
+```
 
 <!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+[racket.png]: ./racket.png
