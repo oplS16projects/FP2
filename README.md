@@ -5,9 +5,8 @@ My name: Dmitri Kheifets
 Exploring XML parsing/writing library and associated document structure type used to represent XML.
 The demo code is generating simple SVG (Scalable Vector Graphics) compliant XML document, saving results in an .svg file.
 
-####SVG rendered in Chrome browser
+> #### SVG rendered in Chrome browser
 > ![racket.png][racket.png]
-
 
 ## Highlights
 
