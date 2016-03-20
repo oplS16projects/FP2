@@ -15,5 +15,5 @@ The demo code is generating simple SVG (Scalable Vector Graphics) compliant XML 
 
 <!-- Links -->
 [racket.png]: ./racket.png
-[racket.svg] ./racket.svg
+[racket.svg]: ./racket.svg
 [image_source]: http://www.beaglebuddy.com/content/pages/javadocs/index.html?com/beaglebuddy/id3/v23/ID3v23TagHeader.html
