@@ -51,6 +51,6 @@ Next, I wanted to extended the previous example by displaying a 3 dimensional cu
 ```
 *Note: This tutorial can be found at: http://www.wikihow.com/Make-a-Cube-in-OpenGL*
 
-To make the cube a slightly different approach is taken, which uses glRotate to make the image more clear by displaying it at an angle. Then, glVertex is used inside of GL_POLYGON to create each side, which is a square, of the cube. This yields the following image:
+To make the cube a slightly different approach is taken, which uses glRotatef to make the image more clear by displaying it at an angle. Then, glVertex3f is used inside of GL_POLYGON to create each side, which is a square, of the cube. This yields the following image:
 
 ![3-Dimensional Cube Output](https://github.com/olearyevan/FP2/blob/master/3d_cube.png?raw=true)
