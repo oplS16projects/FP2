@@ -1,4 +1,4 @@
-## My Library: xml parsing and writing
+## My Library: XML Parsing and Writing
 My name: Dmitri Kheifets
 
 ## Scope:
@@ -57,6 +57,87 @@ A complete document is represented with `document` structure, `(struct document 
                  svg-prolog            ;doc prolog
                  (xexpr->xml svg-body) ;doc body, xexpr-to-xml
                  '()))                 ;list of misc items, none
+```
+
+
+Below is a printout of `document` structure of a complete SVG XML document:
+```text
+(document
+ (prolog
+  (list
+   (p-i
+    'racket
+    'racket
+    'xml
+    "version='1.0' standalone='no'"))
+  (document-type
+   'svg
+   (external-dtd/public
+    "-//W3C//DTD SVG 1.1//EN"
+    "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd")
+   #f)
+  '())
+ (element
+  'racket
+  'racket
+  'svg
+  (list
+   (attribute
+    'scheme
+    'scheme
+    'xmlns
+    "http://www.w3.org/2000/svg")
+   (attribute 'scheme 'scheme 'version "1.1")
+   (attribute 'scheme 'scheme 'width "400px")
+   (attribute 'scheme 'scheme 'height "200px")
+   (attribute
+    'scheme
+    'scheme
+    'viewbox
+    "0 0 400 200"))
+  (list
+   (element
+    'racket
+    'racket
+    'rect
+    (list
+     (attribute 'scheme 'scheme 'x "0")
+     (attribute 'scheme 'scheme 'y "0")
+     (attribute 'scheme 'scheme 'width "400")
+     (attribute 'scheme 'scheme 'height "200")
+     (attribute 'scheme 'scheme 'fill "navy"))
+    '())
+   (element
+    'racket
+    'racket
+    'rect
+    (list
+     (attribute 'scheme 'scheme 'x "25")
+     (attribute 'scheme 'scheme 'y "30")
+     (attribute 'scheme 'scheme 'width "340")
+     (attribute 'scheme 'scheme 'height "140")
+     (attribute 'scheme 'scheme 'fill "red"))
+    '())
+   (element
+    'racket
+    'racket
+    'text
+    (list
+     (attribute 'scheme 'scheme 'x "50")
+     (attribute 'scheme 'scheme 'y "120")
+     (attribute 'scheme 'scheme 'font-size "80")
+     (attribute
+      'scheme
+      'scheme
+      'font-family
+      "Verdana")
+     (attribute
+      'scheme
+      'scheme
+      'fill
+      "aliceblue"))
+    (list (pcdata 'racket 'racket "Racket")))))
+ '())
 ```
 
 <!-- Links -->
