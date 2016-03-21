@@ -3,6 +3,8 @@ My name: Jason Downing
 
 ## What I did
 I used turtles, a racket library for drawing shapes on the screen in different colors.
+I created four images using recursion and modifiying the examples code listed on the
+Racket documentation page ([found here](https://docs.racket-lang.org/racket_turtle/racket_turtle_examples_with_recursion.html)).
 
 ##Example images
 
@@ -12,6 +14,8 @@ I used turtles, a racket library for drawing shapes on the screen in different c
 
 ![Image 3](https://github.com/JasonD94/FP2/blob/master/image3.png?raw=true)
 
+![Image 4](https://github.com/JasonD94/FP2/blob/master/image4.png?raw=true)
+
 ## Example code
 ```
 ;; Spiral code from the example page.
@@ -20,7 +24,6 @@ I used turtles, a racket library for drawing shapes on the screen in different c
       empty
       (append (list (forward x)(turn-right a))
               (spiral a (+ x 2)(sub1 times)))))
-
 
 ;; This image is a modified version of the example found here:
 ;; https://docs.racket-lang.org/racket_turtle/racket_turtle_examples_with_recursion.html
