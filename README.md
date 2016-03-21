@@ -40,3 +40,9 @@ I decided to use the Ring Buffer library here because I have already had tons of
 (for/list ([v rb]) v)
 ```
 
+Here is my output after running the following code:
+
+![alt tag](https://github.com/buidavid16/FP2/blob/master/Ring_Buffer_output.png)
+
+Here is a diagram of what is internally going on with my code:
+
