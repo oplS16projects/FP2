@@ -1,60 +1,49 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Ring Buffer
+My name: David Bui
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+I decided to use the Ring Buffer library here because I have already had tons of practice with ring buffers and know how they work. A ring buffer works similar to a circular array except it doesn't write over the elements at the beginning; it just goes through the ring buffer again as you try to push back. In general, I used all of the functions in this library. First, I made an empty ring buffer, added some values along the way, made sure to check the current contents at that time, updated the value at one previous index, and then outputted the whole thing. I produced the following code:
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+```
+;; Create an empty ring buffer of length 8
+(define rb (empty-ring-buffer 8))
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+;; Push back four numbers into ring buffer
+(ring-buffer-push! rb 3)
+(ring-buffer-push! rb 7)
+(ring-buffer-push! rb 5)
+(ring-buffer-push! rb 1)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+;; Print out contents of ring buffer afterwards
+(for/list ([v rb]) v)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+;; Push back three letters into ring buffer
+(ring-buffer-push! rb 'a)
+(ring-buffer-push! rb 'b)
+(ring-buffer-push! rb 'c)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+;; Get overall length
+(ring-buffer-length rb)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+;; Print out current contents
+(for/list ([v rb]) v)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+;; Push back the letter d to last index
+(ring-buffer-push! rb 'd)
 
-Code should be delivered in two ways:
+;; Change contents at index 2 to be the letter e
+(ring-buffer-set! rb 2 'e)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+;; Look at new content of index 2
+(ring-buffer-ref rb 2)
 
-Ask questions publicly in the email group.
+;; Print out full ring buffer contents again
+(for/list ([v rb]) v)
+```
 
-## How to Prepare and Submit this assignment
+Here is my output after running the following code:
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+![alt tag](https://github.com/buidavid16/FP2/blob/master/Ring_Buffer_output.png)
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+Here is a diagram of what is internally going on with my code:
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![alt tag](https://github.com/buidavid16/FP2/blob/master/ring_buffer_examples.png)
