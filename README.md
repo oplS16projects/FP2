@@ -1,7 +1,7 @@
 ## My Library: Ring Buffer
 My name: David Bui
 
-I decided to use the Ring Buffer library here because I have already had tons of practice with ring buffers and know how they work. A ring buffer works similar to a circular array except it doesn't write over the elements at the beginning; it just goes through the ring buffer again as you try to push back. I used all of the functions in this library and produced the following code:
+I decided to use the Ring Buffer library here because I have already had tons of practice with ring buffers and know how they work. A ring buffer works similar to a circular array except it doesn't write over the elements at the beginning; it just goes through the ring buffer again as you try to push back. In general, I used all of the functions in this library. First, I made an empty ring buffer, added some values along the way, made sure to check the current contents at that time, updated the value at one previous index, and then outputted the whole thing. I produced the following code:
 
 ```
 ;; Create an empty ring buffer of length 8
@@ -46,3 +46,4 @@ Here is my output after running the following code:
 
 Here is a diagram of what is internally going on with my code:
 
+![alt tag](https://github.com/buidavid16/FP2/blob/master/ring_buffer_examples.png)
