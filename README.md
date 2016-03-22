@@ -1,54 +1,48 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## My Library: racket/math (require math)
+My name: Huy Huynh
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+  For my FP2 I chose to fiddle around with the math library of racket. The math library itself is very big so I decided to focus mostly on the matrix portion of the library. There I fiddled around with the idea of converting a list into a matrix, a matrix to a list, and also the basic mathematic operators for the matrix. 
+```racket
+  #lang racket
+  (define matrix-test
+ (make-matrix 4 1 1)) 
+```
+This portion here is just me testing out the make-matrix operator and I am here making a 4x1 matrix with all 1s. 
+```racket
+;THIS IS TURNING LIST INTO MATRIX
+; this will output '(1 2 3 4 5 6 7 8)
+(define list1
+  (list 1 2 3 4 5 6 7 8))
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+(list->matrix 2 4 list1)               
+(list->matrix 4 2 list1)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+;THIS IS TURNING MATRIX INTO LIST
+(define matrix1
+  (matrix [[1 2 3 4]
+           [5 6 7 8]]))
+(matrix->list matrix1)
+```
+  For this chunk of code, I am basically first defining a list, I then use the (list->matrix m n xs) operator that is part of the math library. Where the 'm' and 'n' determines my row and columns and the 'xs' is the list of numbers. Thus, what this is doing is it is taking in my list that I created, and I am making a 2x4 matrix and a 4x2 matrix using the same list. I then used the (matrix->list M) operator which takes a matrix and generates a list with the given matrix. I first made a matrix1 and then fed that into the operator. I then continued this pattern of converting a list to a matrix, and a matrix to a list for two more times making two addional lists and matrices. The other two lists and matrices can be seen in the racket file.
+ I then also fiddled a bit with the basic operators for matrices like addition, subtraction and multiplication that was already available in the math library. These were pretty simple, the matrix+ operator takes in two matrices it can be the same one, but both must have the same dimensions. The same goes for the matrix- operator. The matrix* was a bit tricky/odd as you must need the columns of one matrix be the same as the number of rows for the second matrix. My matrix1 was a matrix of 2 rows and 4 columns and the matrix-test was a matrix of 4 rows and 1 columns. 
+ ```racket
+ ;this is me trying out the '+' '-' and '*' operators for matrices
+(matrix+ matrix1 matrix1) 
+(matrix- matrix1 matrix1)
+(matrix* matrix1 matrix-test)
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+I also hand wrote some of the steps and its outputs out which can be seen here:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+![Alt Text](https://github.com/HuyH0114/FP2/blob/master/Example%20Diagram1.jpg)
+![Alt Text](https://github.com/HuyH0114/FP2/blob/master/Example%20diagram2.jpg)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+Here is an image showing the program working and creating these lists, and matrices. 
+![Alt Text](https://github.com/HuyH0114/FP2/blob/master/Output.PNG)
 
 <!-- Links -->
 [schedule]: https://github.com/oplS16projects/FP-Schedule
