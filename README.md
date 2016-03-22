@@ -1,60 +1,56 @@
 # Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: SGL (OpenGL and Racket/GUI)
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+I wanted to further explore the capabilities of graphics in Racket, therefore I decided to explore the OpenGL package. Having no previous exposure to OpenGL I searched around for a starting point and found this "Hello World" file to use as a starting point.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+```
+(define (draw-opengl)
+  (glClearColor 0.0 0.0 0.0 0.0)
+  (glClear GL_COLOR_BUFFER_BIT)
+  (glColor3d 1.0 1.0 1.0)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+  (glMatrixMode GL_PROJECTION)
+  (glLoadIdentity)
+  (glOrtho 0.0 1.0 0.0 1.0 -1.0 1.0)
+  (glMatrixMode GL_MODELVIEW)
+  (glLoadIdentity)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+  (glBegin GL_QUADS)
+  (glVertex3d 0.25 0.25 0.0)
+  (glVertex3d 0.75 0.25 0.0)
+  (glVertex3d 0.75 0.75 0.0)
+  (glVertex3d 0.25 0.75 0.0)
+  (glEnd)
+)
+```
+*Note: This tutorial can be found at: https://lists.racket-lang.org/users/archive/2010-October/042474.html*
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+The square being output to the screen gets formed by the code above, which calls glVertex3d inside of glBegin/glEnd to define each of the four corner's in the square. This produces the following output:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+![Square Output](https://github.com/olearyevan/FP2/blob/master/square.png?raw=true)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+Next, I wanted to extended the previous example by displaying a 3 dimensional cube on screen. I searched for another tutorial in Racket, but was unsuccessful. This lead me to a tutorial in C and all that was left to do was translate it into the scheme language, which was trival. In addition, this tutorial allowed the cube to be rotated by using the keys WASD, which I did not include in my code and I'm currently figuring out how to implement this function to make it interactive. I think the ability to manipulate images through keystokes could be useful for rotating objects, as was demonstrated in the C example code I found. Also, this could be combined with playing music to manipulate images while a song plays.
 
-Code should be delivered in two ways:
+```
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+  (glRotatef 25.0 1.0 0.0 0.0)
+  (glRotatef 25.0 0.0 1.0 0.0)
 
-Ask questions publicly in the email group.
+  ;;Multi-colored side - FRONT
+  (glBegin GL_POLYGON)
+  (glColor3f 1.0 0.0 0.0)
+  (glVertex3f 0.5 -0.5 -0.5)
+  (glColor3f 0.0 1.0 0.0)
+  (glVertex3f 0.5 0.5 -0.5)
+  (glColor3f 0.0 0.0 1.0)
+  (glVertex3f -0.5 0.5 -0.5)
+  (glColor3f 1.0 0.0 1.0)
+  (glVertex3f -0.5 -0.5 -0.5)
+  (glEnd)
+```
+*Note: This tutorial can be found at: http://www.wikihow.com/Make-a-Cube-in-OpenGL*
 
-## How to Prepare and Submit this assignment
+To make the cube a slightly different approach is taken, which uses glRotatef to make the image more clear by displaying it at an angle. Then, glVertex3f is used inside of GL_POLYGON to create each side, which is a square, of the cube. This yields the following image:
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![3-Dimensional Cube Output](https://github.com/olearyevan/FP2/blob/master/3d_cube.png?raw=true)
