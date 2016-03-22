@@ -14,7 +14,8 @@ I will show as many graphs as I can, but keep in mind some of these requrie time
 
 I am going to start by showing what I can do with a 3D graph of a Sphere:
 
-FP2/sphere1.png
+![sphere1](https://cloud.githubusercontent.com/assets/17748575/13971541/686c5424-f067-11e5-90dd-cd6e1f67e90b.png)
+
 
 
 
