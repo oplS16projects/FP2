@@ -1,60 +1,25 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: csv-reading
+My name: John Kilgo
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+For this example I chose the csv-reading library. Here, I created a simple csv-reader which I then fed in to my own procedures. I created a sample data file consisting of some data that could be from a store:
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+data.csv
+```
+Name,ID,Quantity
+chocolate,209137,12
+sugar,213423,23
+candy,132131,321
+good food,232111,0
+```
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+I then utilized some of the examples to make a procedure that would read an entire csv file and return a list. I created a wrapper for this procedure where the user could give the procedure a key (as a string) and that procedure would either return an error message if the particular key was not found or it would return a list containing the matched entries. The key was hardcoded to the 'Name' column of the csv.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+```
+;; Wrapper for my-filter
+(define (filter-wrapper key)
+  (if (null? (my-filter key)) "Sorry, no matching item(s) in database" (my-filter key)))
+```
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+An example run and two different queries are below. I'm not entirely sure how this would work in a larger project, but I'm thinking about doing something with parsing and intepreting data; this is a very basic start.
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![Example Query](https://raw.githubusercontent.com/john-kilgo/FP2/master/example.png)
