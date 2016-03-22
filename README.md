@@ -1,60 +1,64 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Racket Turtle
+My name: Jason Downing
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## What I did
+I used [Racket Turtle](https://docs.racket-lang.org/racket_turtle/index.html),
+a racket library for drawing shapes on the screen in different colors.
+I created four images using recursion, based on the example code listed on the
+Racket documentation page
+([found here](https://docs.racket-lang.org/racket_turtle/racket_turtle_examples_with_recursion.html)).
+The images look like stars, squares and spirals, as the main function listed on the Turtles
+documentation page creates spiral shapes.
+This function basically draws forward and to the right, and varying the amount
+that the line moves and the amount of recursion I was able to create different images.
+I also found some different colors to use that were listed on a
+[Racket color database page](https://docs.racket-lang.org/draw/color-database___.html),
+which makes the images look different depending on which colors I used and which
+background color I decided to use.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+##Example images
+These are the four images that my racket file
+[turtles.rkt](https://github.com/JasonD94/FP2/blob/master/turtles.rkt) creates.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+![Image 1](https://github.com/JasonD94/FP2/blob/master/image1.png?raw=true)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+![Image 2](https://github.com/JasonD94/FP2/blob/master/image2.png?raw=true)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+![Image 3](https://github.com/JasonD94/FP2/blob/master/image3.png?raw=true)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+![Image 4](https://github.com/JasonD94/FP2/blob/master/image4.png?raw=true)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+## Example code
+This is the main spiral code. It takes three arguments, **a** (the angle of the turn-right),
+**x** (how far the line gets moved forward), and **times** (how many times the function recurses).
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+```
+(define (spiral a x times)
+  (if (< times 0)
+      empty
+      (append (list (forward x) (turn-right a))
+              (spiral a (+ x 2) (sub1 times)))))
+```
 
-Code should be delivered in two ways:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+This is an example for printing out an image. It prints out the "image 1", an image
+with circles in the middle and star like shape on the outside.
 
-Ask questions publicly in the email group.
+**change-pen-size** changes how large the lines are - in this case I made them smaller.
 
-## How to Prepare and Submit this assignment
+**change-bg-color** changes the background color - I made it black for this image.
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+**change-color** determines which color list is used. I made several of these to vary
+the colors.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+**spiral** just calls the spiral function, with the parameters given.
+See the spiral example above for more details on the parameters.
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+```
+(define spiral-image
+  (list (change-pen-size 1)
+        (change-bg-color "black")
+        (change-color COLORS1)
+        (spiral 911 11 1512)))
+(draw spiral-image)
+```
