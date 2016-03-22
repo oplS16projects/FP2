@@ -20,10 +20,10 @@ I am going to start by showing what I can do with a 3D graph of a Sphere:
 I just made a minor change and produced a shap similar to the nose of a plane.
 The really cool thing is you can click and drag and rotate the image.
 
-``
+```
 (plot3d (isosurface3d
            (λ (x y z) (sqrt (+ x (sqr y) (sqr z)))) 1
            -1 1 -1 1 -1 1)
           #:altitude 25)
-``          
+```          
 
