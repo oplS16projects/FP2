@@ -14,6 +14,7 @@ I will show as many graphs as I can, but keep in mind some of these requrie time
 
 I am going to start by showing what I can do with a 3D graph of a Sphere:
 
+https://github.com/GitCauble/FP2/blob/6bef9b7a34b166cd79d5a6166dc0e7e8b34af1ba/sphere1.png?raw=true
 
 
 
