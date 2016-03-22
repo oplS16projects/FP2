@@ -44,9 +44,12 @@ This is an example for printing out an image. It prints out the "image 1", an im
 with circles in the middle and star like shape on the outside.
 
 **change-pen-size** changes how large the lines are - in this case I made them smaller.
+
 **change-bg-color** changes the background color - I made it black for this image.
+
 **change-color** determines which color list is used. I made several of these to vary
 the colors.
+
 **spiral** just calls the spiral function, which the parameters 911, 11 and 1512.
 911 is the angle of the turn, 11 is how far the line moves and 1512 means it will
 recurse 1512 times.
