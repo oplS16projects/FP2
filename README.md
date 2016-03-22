@@ -11,10 +11,7 @@ My name: Huy Huynh
   (define matrix-test
  (make-matrix 4 1 1)) 
 ```
-This portion here is just me testing out the make-matrix operator and I am here making a 4x1 matrix with all 1s. Basically it would look like [ 1 ] 
-          [ 1 ]
-          [ 1 ]
-          [ 1 ]
+This portion here is just me testing out the make-matrix operator and I am here making a 4x1 matrix with all 1s. 
 ```racket
 ;THIS IS TURNING LIST INTO MATRIX
 ; this will output '(1 2 3 4 5 6 7 8)
