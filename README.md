@@ -35,7 +35,15 @@ Then the same image rotated after I clicked and draged it around.
 ![plane_nose_rotated](https://cloud.githubusercontent.com/assets/17748575/13971758/3ed95d1c-f069-11e5-8855-d794538be413.png)
 
 
+The next thing I will show you is the 3D histogram graph. This can be very useful in displaying data on a webpage or something.
 
+```
+(define data '(#(a a (1 1 1)) #(a b (1.5 3)) #(b b ()) #(b a (1/2)))) ;; data 
+ (plot3d (stacked-histogram3d data #:labels '("Red" #f "Blue")        ;; labels 
+                                   #:alphas '(2/3 1 2/3)))            ;; makes some layers transparent.
+```
+
+![histo_graph1](https://cloud.githubusercontent.com/assets/17748575/13971873/1f14abe8-f06a-11e5-9075-93716f6b36ee.png)
 
 
 
