@@ -38,6 +38,17 @@ To unscramble the list of colors, the position that 0 is placed in (in this case
   (for/image ([old unscrambled-blue])
     (red+color (obscure-intensity (color-red old) 199) old)))
 ```
-If all the `scramble` procedures are called and then the respective `unscramble` procedures are also called, the image will go from a normal state, all the way through 3 levels of encryption, then 3 levels of decryption, until finally ending in its original state.
+If all the `scramble` procedures for all 3 colors are called and then the respective `unscramble` procedures for all 3 colors are also called, the image will go from a normal state, all the way through 3 levels of encryption, 3 levels of decryption, until finally ending in its original state.
 
+When the following is entered into the REPL in DrRacket:
+```Racket
+(beside beach
+          scrambled-red
+          scrambled-blue
+          scrambled-green
+          unscrambled-blue
+          unscrambled-red
+          unscrambled-green)
+```
+The results are concatenated into a nice sequential image showing the process of encrytion and decryption.
 ![encryptcycle.png](https://github.com/BrendanBousquet/FP2/blob/master/encryptcycle.png)
