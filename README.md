@@ -1,11 +1,3 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
-
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
 ## My Library: (plot)
 My name: Ryan Cauble
 
