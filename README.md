@@ -54,9 +54,3 @@ Above would result in a graph much like the first I presented, however with some
 2. Instead of solid lines, the graph would be made of dots.
 3. In the upper left corner, a box will appear, with "y = x^2" followed by the graphed function's appearance.
   (In this case, a red, dotted line)
-
-
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
