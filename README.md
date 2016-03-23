@@ -66,7 +66,7 @@ To do so, I used the web-launch procedure:
             (function "Enter some words to build an acronym"  
                       (acronym ["Words" (listof+ ["Word" string+])] -> ["The acronym" string])))
 ```
-Firstly, the web launch begins by taking a title of type string a the first parameter: 
+Firstly, the web launch begins by taking a title of type string as the first parameter: 
 ```racket
 "Acronym Builder | By: Muhammed Khalid" 
 ```
