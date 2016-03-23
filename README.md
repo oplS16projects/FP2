@@ -1,3 +1,4 @@
+# Final Project Assignment 2: Exploration (FP2)
 ## My Library: Rackunit
 My name: John Perkins
 
@@ -8,18 +9,18 @@ The first new keyword or whatever they are called in racket introduced is the pr
 The first real introduction to unit testing comes in the form of basic eq? eqv? equal? procedure. This was pretty fun to mess with as we had that worksheet a while back that asked about the same concepts and here it was to mess with directly.
 
 Here is testing two numbers
-'''racket
+```racket
 (check-eq? 4 4)
 (check-eqv? 4 4)
 (check-equal? 4 4)
-'''
+```
 
 And then testing two lists of the same numbers
-'''racket
+```racket
 (check-eq? (list 4) (list 4))
 (check-eqv? (list 4) (list 4))
 (check-equal? (list 4) (list 4))
-'''
+```
 
 After those basic concepts come more complex forms of a list of tests which is useful if you want something to short circuit, such as testing a predecate such as odd? or even? The last idea of rackunit introduced in the quick-start guide are test suites which are pretty self explainatory, but generally they are tests which are combined into a whole that usually would test one specific piece of code in immense detail.
 
