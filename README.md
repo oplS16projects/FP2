@@ -1,60 +1,26 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Rackunit
+My name: John Perkins
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+Originally I was going to do the net/url library as I had little experience in anything related to that subject. I quickly realized after it that I had absolutely zero clue what was going on with it so I switched over to the rackunit or racket unit testing. Overall the library seems pretty simple and focused on its topic of unit testing. Some concepts that I learned more directly through this although I was exposed to them through the various test files located for assignments are: file linking, test suites, and so forth.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+The first new keyword or whatever they are called in racket introduced is the provide keyword. This keyword from what I can gather is the opposite of the require procedure in which whatever arguments that it has are items being exported vs imported.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+The first real introduction to unit testing comes in the form of basic eq? eqv? equal? procedure. This was pretty fun to mess with as we had that worksheet a while back that asked about the same concepts and here it was to mess with directly.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+Here is testing two numbers
+'''racket
+(check-eq? 4 4)
+(check-eqv? 4 4)
+(check-equal? 4 4)
+'''
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+And then testing two lists of the same numbers
+'''racket
+(check-eq? (list 4) (list 4))
+(check-eqv? (list 4) (list 4))
+(check-equal? (list 4) (list 4))
+'''
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+After those basic concepts come more complex forms of a list of tests which is useful if you want something to short circuit, such as testing a predecate such as odd? or even? The last idea of rackunit introduced in the quick-start guide are test suites which are pretty self explainatory, but generally they are tests which are combined into a whole that usually would test one specific piece of code in immense detail.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+The test resuits of these unit tests are also displayed in a nicer to read format for me where it will display a given error message and formatting with lines.
