@@ -10,7 +10,7 @@ My name: Udit Bhansali
 At first I started working on (htmlPrag), but later I found out the library I'm using is obsolete. I later switched to (web-server/insta)
 
 ##Part 3: Screenshot
-![FP1](http://i.imgur.com/vonTgcj.png?1)
+![FP2](http://i.imgur.com/TcWAYBC.png?1)
 
 Code Excerpt
 ```
@@ -19,5 +19,3 @@ Code Excerpt
 (define (start request)
   (response/xexpr
 ```
-##Screenshot
-![FP2](http://i.imgur.com/TcWAYBC.png?1)
