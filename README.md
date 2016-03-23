@@ -1,60 +1,62 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Plot: Graph Plotting
+My name: John Adams
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+While not very, original, with a bunch of my classmates doing the same, I explored the Plot: Graph Plotting library for FP2.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+The Plot library allows users to use the (plot) function to set up, and then graph functions that they select.
+I have 3 flavors of graphs for you today:
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+1) Standard Exponential
+```
+(require plot)
+(plot function sqr -2 2)
+```
+![fp2 graph1](https://cloud.githubusercontent.com/assets/17749976/14003940/e5cdf20e-f12c-11e5-8102-c4d797562108.jpg)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+The first "Square" Graph simply plots the function "y=x^2", from -2 to 2.
+In:
+```
+(plot function sqr -2 2)
+```
+-2 and 2 serve as the boundaries of the graph, while sqr is used as the function being graphed.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+2) Polar Graphing
+```
+(define (funct1 θ) (+ 1/2 (* 1/6 (cos (* 5 θ)))))
+(define (funct2 θ) (+ 2 (* 1/4 (cos (* 10 θ)))))
+(plot (list (polar-axes #:number 10)
+              (polar-interval funct1 funct2 #:label "[f1,f2]")))
+```
+![fp2 graph2](https://cloud.githubusercontent.com/assets/17749976/14004036/9d42252c-f12d-11e5-819d-7373565567d2.jpg)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+Polar Graphing becomes a bit more complicated. It is necessary to define the polar function (or, in this case, functions)
+beforehand. Then (plot) can graph a polar-interval structure, comprised of both polar functions, creating one graph.
+The (polar-axes #:number 10) gives the graph its 10 'spokes'.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+3) Vector Plotting
+```
+(plot (vector-field (λ (x y) (vector (+ x y) (- x y)))
+                      -4 4 -3 3))
+```
+![fp2 graph3](https://cloud.githubusercontent.com/assets/17749976/14004090/11cf4a8c-f12e-11e5-80b9-1b1a776f519d.jpg)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+The Plot library contains the elements needed for Vector Graphs. The four numbers (-4 4 -3 3) represent the X and Y boundaries,
+respectively. The arrows representing the individual vectors arch away from the origin (0, 0) of the graph, the size indicating
+the magnitude of the vector.
 
-Code should be delivered in two ways:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+Plot contains commands allowing users to give functions their own distinct colors, styles (dotted or full line), and label the function, i.e.:
+```
+(plot (function sqr -2 2 #:color 3 #:style 'dot #:label "y = x^2"))
+```
+Above would result in a graph much like the first I presented, however with some differences:
+1. The graph would be colored blue instead of red, the default
+2. Instead of solid lines, the graph would be made of dots.
+3. In the upper left corner, a box will appear, with "y = x^2" followed by the graphed function's appearance.
+  (In this case, a red, dotted line)
 
-Ask questions publicly in the email group.
 
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
 1. Add your racket file to the repository. 
 1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
