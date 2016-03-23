@@ -6,7 +6,8 @@ I have used (web-server/insta) library for FP2
 ##Part 2: Write your Report
 #### My Library: (web-server/insta)
 My name: Udit Bhansali
-At first I started working on (htmlPrag), but later I found out the library I'm using is obsolete. I later switched to (web-server/insta)
+
+At first I started working on (htmlPrag) library, but later I found out the library I'm using is obsolete. I later switched to (web-server/insta) library
 
 Screenshot
 ![FP2](http://i.imgur.com/Ts9kav4.png?1)
