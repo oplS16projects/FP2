@@ -62,5 +62,9 @@ data depending on your needs.
 
 ![histo_graph2](https://cloud.githubusercontent.com/assets/17748575/13971976/f89e0c38-f06a-11e5-9212-26352885fe55.png)
 
+If I have more time I will come back to this and think about applying some advanced equations to 
+this and see what kind of graphs I could get. I hope you enjoyed seeing what can be done with plot
+in racket. 
 
+Thank you for stopping in!!!
 
