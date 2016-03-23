@@ -82,7 +82,8 @@ user wishes to create acronyms out of.
 (i.e Adams --> A and David B. Adams --> DBA) 
 Finally, the string will present itself next to "The acronym".
 
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+# Output 
+
+![alt tag](https://github.com/mkhalid578/FP1/blob/master/output.png)
 
 
