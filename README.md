@@ -1,60 +1,62 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: (plot)
+My name: Ryan Cauble
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+The second library I selected was the plot library. This library offers lots of really cool 2D and 3D graphing functions. 
+I will show as many graphs as I can, but keep in mind some of these requrie time for the program to produce and its slow.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+I am going to start by showing what I can do with a 3D graph of a Sphere:
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+![sphere1](https://cloud.githubusercontent.com/assets/17748575/13971541/686c5424-f067-11e5-90dd-cd6e1f67e90b.png)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+I just made a minor change and produced a shap similar to the nose of a plane. To do this I inserted x as a variable 
+instead of the square root of x.
+The really cool thing is you can click and drag and rotate the image.
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+```
+(plot3d (isosurface3d
+           (λ (x y z) (sqrt (+ x (sqr y) (sqr z)))) 1
+           -1 1 -1 1 -1 1)
+          #:altitude 25)
+```          
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+![plane_nose](https://cloud.githubusercontent.com/assets/17748575/13971705/c3baf460-f068-11e5-8d17-2a4d9b5336b7.png)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+Then the same image rotated after I clicked and draged it around. 
 
-Code should be delivered in two ways:
+![plane_nose_rotated](https://cloud.githubusercontent.com/assets/17748575/13971758/3ed95d1c-f069-11e5-8855-d794538be413.png)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
-Ask questions publicly in the email group.
+The next thing I will show you is the 3D histogram graph. This can be very useful in displaying data on a webpage or something.
 
-## How to Prepare and Submit this assignment
+```
+(define data '(#(a a (1 1 1)) #(a b (1.5 3)) #(b b ()) #(b a (1/2)))) ;; data 
+ (plot3d (stacked-histogram3d data #:labels '("Red" #f "Blue")        ;; labels 
+                                   #:alphas '(2/3 1 2/3)))            ;; makes some layers transparent.
+```
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+![histo_graph1](https://cloud.githubusercontent.com/assets/17748575/13971873/1f14abe8-f06a-11e5-9075-93716f6b36ee.png)
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+
+Below is code similar to above but changed around to show customizations. As you can see many ways to display your 
+data depending on your needs.
+
+```
+ (define data '(#(a a (1 1 1 1 1)) #(a b (1.5 3 1 .5 .5 .5))))
+ (plot3d (stacked-histogram3d data #:labels '("Red" "Green" "Blue" "Yellow" "Teal" "Purple")
+                                   #:alphas '(2/3 1 2/3)))
+
+ (define data2 '(#(a a (1 1 1 1 1)) ))
+ (plot3d (stacked-histogram3d data2 #:labels '("Red" "Green" "Blue" "Yellow" "Teal" "Purple")
+                                   #:alphas '(2/3 1 2/3)))
+```
+
+![histo_graph2](https://cloud.githubusercontent.com/assets/17748575/13971976/f89e0c38-f06a-11e5-9212-26352885fe55.png)
+
+If I have more time I will come back to this and think about applying some advanced equations to 
+this and see what kind of graphs I could get. I hope you enjoyed seeing what can be done with plot
+in racket. 
+
+Thank you for stopping in!!!
+
