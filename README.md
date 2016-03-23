@@ -1,60 +1,47 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Images
+My name: Andry Lora
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+  The library that I tried was the images library.The reason I picked this library was because it popped out at you because the name was short and simple.
+  
+ The first thing I did was print out the some of the icons that are provided in the Image library such as the stickman and a bomb.I changed some of the color values of the stickman to see how the image library handled edges and line seperations and it handles it really well this can be seen in Figure 1.
+ 
+ ![Figure 1](https://github.com/andrylr/FP2/blob/master/Figure1.png)
+   <p align="center">Figure 1 </p>
+ 
+ Then I noticed that in the documentation for the bombs that there are different materials that are used for the bombs and this changes their appearances and that you could use a list within a list to display as many as you want the code can be seen below and the differences in Figure 2.
+ 
+ ```racket
+ (for/list ([material  (list plastic-icon-material
+                              rubber-icon-material
+                              glass-icon-material
+                              metal-icon-material)])
+    (bomb-icon #:height 32 #:material material))
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+ ```
+ 
+  
+  ![Figure 2](https://github.com/andrylr/FP2/blob/master/Figure2.png)
+   <p align="center">Figure 2 </p>
+  
+  
+  Then I began using list to create a set of combination of arrow keys to show the Konami command which is a cheat code that are in some of the companies' games.With the use of list I also created a little story about a villain kicking a bomb into an unsuspecting person, both of these can be seen in Figure 2.
+  
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+I did run into something that could be a concern if I plan on using this library which is the requirement of a lot of items.I do not know if this causes any problems in the running of the code but I noticed this while I was working with this library.For the use of the bomb image, arrows and text the requirements can be seen below.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+```racket 
+(require images/icons/style)
+(require images/icons/control)
+(require images/icons/stickman) 
+(require images/icons/symbol)
+(require images/icons/misc)
+(require images/icons/arrow)
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+  
 
-Code should be delivered in two ways:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
