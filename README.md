@@ -1,54 +1,55 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: (tcp)
+My name: Donvyn Pickler
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+After deciding that net/url, while useful, wasn't exactly what I was looking for.  One quick and uninteruptted google search later (why didn't I do that at the start) I turned up the [tcp library](https://docs.racket-lang.org/reference/tcp.html).  After skimming through the library with my mediocre amount of networking knowledge, I have deduced that this is probably what I was looking for last time.  
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+```(tcp-listen)``` and ```(tcp-connect)``` sound pretty simple and useful, lets see what we can do with those.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+######Input:
+Looks like these two should get us a listening server on the machine, using port 1337 (because I am 12).
+```
+(define my-port 1337)
+(define my-listener (tcp-listen my-port))
+```
+######Output:
+Nothing, which seems pretty good compared to an error or that ugly html dump I got last time.  When I ask for my-listener I get back ```#<tcp-listener>```, which I assume is a good thing.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+#####Next:
+For my next trick, I will open up another instance of DrRacket and attempt to make use of this ```(tcp-connect)``` command.  Lets take a look at ```(tcp-connect)```.
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+![](https://github.com/draconicdon/FP2/blob/master/tcp%20connect.png?raw=true "uploaded to github instead of imgur")
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+Now, if only I could figure out how to make folders in github.
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+This looks pretty straight forward, and since I am doing this all on one machine, also because the documentation says I can, I will be using "localhost" to specify that I want to connect to something on this machine.
+######Input:
+```
+(define my-port 1337)
+(define my-host "localhost")
+(define my-connection (tcp-connect "localhost" my-port))
+```
 
-Code should be delivered in two ways:
+######Output:
+![](https://github.com/draconicdon/FP2/blob/master/connect%20failure.png?raw=true "What?")
+What?  After some reading (two lines down from where I stopped), apparently this returns two items.  Honestly, I am not sure what to do with that right now, so I'll give it a try in the command line.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+#####Input:
+###### Server:
+Just did a fresh run of what I have up there with the addition of a handy proceedure called ```(tcp-accept```, which takes a listener object.
+###### client: Same as above minus the define for "my-connection", instead I'll just enter ```(tcp-connect my-host my-port)``` into the command line at the bottom.
 
-Ask questions publicly in the email group.
+####Output:
+~~Oh wow, that actually did something.~~  Everything worked as expected, the output can be seen below.
+![](https://github.com/draconicdon/FP2/blob/master/tcp%20success.png?raw=true "It almost seems too easy.")
 
-## How to Prepare and Submit this assignment
+Just to make sure that this wasn't some kind of fluke, I quicklly tried another test using the same listener but trying to make the connection using "localhost" and a different port and it threw an error saying it couldn't.
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+##Thoughts:
+This is a good small step, but there are a lot of references in the documentation to things like "synchronizable events" and "custodians" that I am not super familiar with.  I think those would be key to getting any practical use out of this library.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+[It's not like there are any models out there that I can follow or anything.](https://rosettacode.org/wiki/Chat_server#Racket)
+
 
 <!-- Links -->
 [schedule]: https://github.com/oplS16projects/FP-Schedule
