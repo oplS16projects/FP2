@@ -33,4 +33,6 @@ Finally these both are combined to make test-suites which can have a before and 
 
 The aspect about this I like the most I think is the fact that the results of these three types of tests can be displayed in easier-to-read formats such as windows which have all the data related to the tests included inside of them.
 
+![Test Case GUI](https://github.com/raghnall6402/FP2/blob/master/fp2-rackunit-example.png)
+
 Overall I didn’t expect to get that much out of this library but it turned out to be pretty interesting to know how to implement some form of unit testing in my final project.
