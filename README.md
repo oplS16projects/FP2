@@ -28,3 +28,4 @@ Finally I used the matrices in the math library to solve a problem that we learn
 (matrix* m1 m1)
 (matrix-rows m1)
 ```
+![output](https://github.com/CJMcLaughlin/FP2/blob/master/output2.png)
