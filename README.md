@@ -68,3 +68,5 @@ Not satisfied with my use of the library, I decided to try my hand at using the 
 Not having used any file/directory commands in racket before, this was a trick to figure out.
 However, the save-image command itself was straight forwards once I figured out how to input the parameters.
 
+This outputs a nice little image which is convienient for posting to my teams Facebook group!.
+![alt tag](https://github.com/JDBJohnBrown/FP2/blob/master/img.png)
