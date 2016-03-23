@@ -47,3 +47,17 @@ The next thing I will show you is the 3D histogram graph. This can be very usefu
 
 
 
+Below is code similar to above but changed around to show customizations. As you can see many ways to display your 
+data depending on your needs.
+
+```
+ (define data '(#(a a (1 1 1 1 1)) #(a b (1.5 3 1 .5 .5 .5))))
+ (plot3d (stacked-histogram3d data #:labels '("Red" "Green" "Blue" "Yellow" "Teal" "Purple")
+                                   #:alphas '(2/3 1 2/3)))
+
+ (define data2 '(#(a a (1 1 1 1 1)) ))
+ (plot3d (stacked-histogram3d data2 #:labels '("Red" "Green" "Blue" "Yellow" "Teal" "Purple")
+                                   #:alphas '(2/3 1 2/3)))
+```
+
+
