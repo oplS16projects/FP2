@@ -84,6 +84,11 @@ Finally, the string will present itself next to "The acronym".
 
 # Output 
 
-![alt tag](https://github.com/mkhalid578/FP1/blob/master/output.png)
+![alt tag](https://github.com/mkhalid578/FP2/blob/master/output_1.png)
 
+![alt tag](https://github.com/mkhalid578/FP2/blob/master/output_2.png)
+
+![alt tag](https://github.com/mkhalid578/FP2/blob/master/output_3.png)
+
+## Dr. David B. Adams is my inspiration
 
