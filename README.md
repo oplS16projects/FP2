@@ -12,7 +12,7 @@ For my second exploration, I decided to try out the QR code library. I've always
   (qr-code urlstring (string-append qrcodename ".png")))
 ```
 
-An example QR code, which would lead to Google.com, is below
+An example QR code, which would lead to this repo, is below
 
 
 ![QR](http://i.imgur.com/EbfhNcw.png)
