@@ -17,7 +17,8 @@ I am going to start by showing what I can do with a 3D graph of a Sphere:
 ![sphere1](https://cloud.githubusercontent.com/assets/17748575/13971541/686c5424-f067-11e5-90dd-cd6e1f67e90b.png)
 
 
-I just made a minor change and produced a shap similar to the nose of a plane.
+I just made a minor change and produced a shap similar to the nose of a plane. To do this I inserted x as a variable 
+instead of the square root of x.
 The really cool thing is you can click and drag and rotate the image.
 
 ```
@@ -26,4 +27,13 @@ The really cool thing is you can click and drag and rotate the image.
            -1 1 -1 1 -1 1)
           #:altitude 25)
 ```          
+
+![plane_nose](https://cloud.githubusercontent.com/assets/17748575/13971705/c3baf460-f068-11e5-8d17-2a4d9b5336b7.png)
+
+
+
+
+
+
+
 
