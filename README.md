@@ -1,7 +1,7 @@
 ## My Library: Leftist Trees
 My name: Sridhar Rangan
-Write what you did!
-Remember that this report must include:
+
+For my second exploration I decided to play around with the leftist trees library.
 
 
 ```racket
