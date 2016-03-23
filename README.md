@@ -62,7 +62,7 @@ When you go get dressed so you can meet her family, she'll find you'r old tap sh
 ```
 This definitely gave the HTML page a more visually appealing feel:
 
-![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_2.png)
+![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_3.png)
 
 Finally, I decided to play around with the itemlist operation. I added a new section About the Author. I then created an itemlist and populated it with items containing details regarding the author's life.
 
@@ -90,7 +90,7 @@ When you go get dressed so you can meet her family, she'll find you'r old tap sh
 
 The final output contained a couple paragraphs about the story and information about the author:
 
-![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_3.png)
+![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_4.png)
 
 That was fun! Please let me know if you have any questions :)
 Best,
