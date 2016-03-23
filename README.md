@@ -19,9 +19,16 @@ The results of this is that it is all true. And then testing two lists of the sa
 The results of which is that equal? Is the last test is only one that is true.
 
 These most of the time are expanded to be in the form of check-eq?, check-not-equal?, and many others. The one that I liked the most from this is the simple check-= this can be used, for example, to see if a number is within a certain amount of another number. 
-
+```racket
+(check-= 5 4 1 "within 1")
+(check-= 5 3 1 "not within 1")
+```
 These concepts form the base blocks of building test cases. Test cases are basically a series of checks which can be named and will also short circuit if a single test fails. These test cases also have a lot of built in functionality such as test-equal automatically including check-equal as shown below.
-
+```racket
+(test-begin
+    (check-equal? 50 50))
+(test-equal? "test if 50 and 50 are equal." 50 50)
+```
 Finally these both are combined to make test-suites which can have a before and after messages. These test-suites are simply larger amounts of related checks and test cases.
 
 The aspect about this I like the most I think is the fact that the results of these three types of tests can be displayed in easier-to-read formats such as windows which have all the data related to the tests included inside of them.
