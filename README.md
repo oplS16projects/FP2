@@ -8,8 +8,8 @@ I have used (web-server/insta) library for FP2
 My name: Udit Bhansali
 At first I started working on (htmlPrag), but later I found out the library I'm using is obsolete. I later switched to (web-server/insta)
 
-##Part 3: Screenshot
-![FP2](http://i.imgur.com/TcWAYBC.png?1)
+Screenshot
+![FP2](http://i.imgur.com/Ts9kav4.png?1)
 
 Code Excerpt
 ```
