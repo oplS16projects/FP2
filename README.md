@@ -1,60 +1,70 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: (2htdp/image)
+My name: John Brown3
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+For FP2 I explored the 2htdp/image library for lack of a better library. Nothing peeked my interest, so I used this to generate an image which displays some of the information I retrieved in [FP1](https://github.com/JDBJohnBrown/FP1). I expanded upon my code from FP1 in numerous ways, however I will stick stricly to explaining my use of the image library.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+## Sub-Images
+Overall I generate 5 images through the use of this library.
+The first four are combined with other overlay commands to create the final image.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+Each of the four sub-images is created in the same way. So I will only look at one here.
+```
+(define (goal-leader)
+  (overlay/offset
+  (overlay/offset (text "Goals" 20 "gold") 0 28
+                  (text (get-goals most_goals) 25 "gold")) 0 40
+                  (text (string-append (substring (get-firstname most_goals) 0 1) ". " (get-lastname most_goals)) 16 "gold")
+                  ))
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+To combine multiple commands from the library into one image, I have learned two main ways to do this. Overlay, and beside.
+Overlay places one image command over another, and centers the smaller one inside of it(unless otherwise specified). Beside places the images horizontally next to one another.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+In this code, I use overlay to add multiple lines of text appear in one image. Since the code defaults to middle and center, the text lines up neatly horizontally on seperate lines.
+The /offset allows me to change the height a which the "next" line apprears.
+For example in the furthested nested overlay/offset saying '0 28' after the text command, tells overlay to draw the next command
+at an offset of 0 pixels to the right, and 28 pixels downward.
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+I repeated this with another offset overlay, so I can combine three operations into one image, which I offset even further down.
 
-Code should be delivered in two ways:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+## Final Product
+In the last image, I combine the use of overlay, overlay/offset and beside to create on final image called "dragons-image"
+```
+(define dragons-image
+(overlay/offset
+(overlay/offset
+(overlay (text "Dragons" 42 "gold")
+         (rectangle 400 80 "solid" "forestgreen"))
+0 60
+(overlay (text "Point Leaders" 16 "gold")
+         (rectangle 400 40 "solid" "black")))
+0 100
+(beside
+        (overlay (goal-leader)
+         (rectangle 100 80 "solid" "black"))
+        (overlay (assist-leader)
+         (rectangle 100 80 "solid" "black"))
+        (overlay (point-leader)
+         (rectangle 100 80 "solid" "black"))
+        (overlay (win-leader)
+         (rectangle 100 80 "solid" "black")))))
+```
+The difference again being that overlay is iincredibly useful for centering things on other images, while with offset and besides you can position things appropriately.
 
-Ask questions publicly in the email group.
+I lead with a title text, gold on a green background, followed by a subtitle gold on black.
+Lastly I end using the beside function to place the subimages I created (ontop of a black background) next to each other in a neat and orderly fashion. 
 
-## How to Prepare and Submit this assignment
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+## Saving
+Not satisfied with my use of the library, I decided to try my hand at using the save-image function aswell.
+```
+(save-image dragons-image (string->path (string-append (path->string(find-system-path 'temp-dir)) "\\img.png")))
+```
+Not having used any file/directory commands in racket before, this was a trick to figure out.
+However, the save-image command itself was straight forwards once I figured out how to input the parameters.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
