@@ -1,60 +1,97 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: scribble
+My name: Rajia Abdelaziz
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+I was very excited that FP2 was exactly the same as FP1 because that meant that I would get to explore more Racket Libraries! I began by first reading over more of the documentation found at https://docs.racket-lang.org/guide/More_Libraries.html . The library that really interested me was scribble because I am currently enrolled in Professor Jesse Heines' GUI Programming 2 class and he always stresses documentation. 
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+The scribble library supports writing documentation. It also allows you to generate simple HTML and/or PDF documents. I was particularly interested in creating HTML documents and decided to make the assignment fun by creating a short web page for the story "If You Give a Pig a Pancake" written by Laura Numeroff. I got the idea to use this story because before break we were discussing Laura Numeroff's story "If You Give a Mouse a Cookie". 
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+In order to start creating the HTML file for the web page I created a file called "Pig.scrbl" and set the language to scribble/base. I put a Title and short description of the story. 
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+```
+#lang scribble/base
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+@title{If You Give a Pig a Pancake}
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+If you give a Pig a pancake, she'll want some syrup to go with it.
+You'll give her some of your favorite maple syrup, and she'll probably get all sticky.
+She'll want to take a bath...
+```
+Running the output produced a simple HTML document with a title of the short story and introduction:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_0.png)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+Next, I wanted to write a couple sections of the story: a section on the consequences of giving the Pig a bath and a section on the consequences of visiting her family. In order to do this, I called section to generate a sub-section decleration. 
 
-Code should be delivered in two ways:
+```
+#lang scribble/base
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+@title{If You Give a Pig a Pancake}
 
-Ask questions publicly in the email group.
+If you give a Pig a pancake, she'll want some syrup to go with it.
+You'll give her some of your favorite maple syrup, and she'll probably get all sticky.
+She'll want to take a bath...
 
-## How to Prepare and Submit this assignment
+@section{The Consequences of Bubbles}
+When she's in the bath, she'll ask you for some bubbles and a toy. When you give her the bubbles and your rubber duck, she'll feel  and ask you to go visit her family.
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+@section{The Consequences of Visiting Her Family}
+When you go get dressed so you can meet her family, she'll find you'r old tap shoes and she'll want to dance.
+```
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+The output produced two additional sections as expected and a column along the side that directs the users to each of the sections:
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_1.png)
+
+After creating the sub-sections, I decided to explore more functions in the scribble/base language to give the text more emphasis. I made the last sentance of the first paragraph italics and centered the paragraph. I also made certain words larger and bold for emphasis. To do so I used @larger { }, @italic { }, @centered { }, and @bold { }. 
+
+```
+#lang scribble/base
+
+@title{If You Give a Pig a Pancake}
+
+@centered{If you give a Pig a pancake, she'll want some syrup to go with it.
+You'll give her some of your favorite maple syrup, and she'll probably get all sticky.
+@italic{She'll want to take a bath...}}
+
+@section{The Consequences of Bubbles}
+When she's in the bath, she'll ask you for some bubbles and a toy. When you give her the bubbles and your rubber duck, she'll feel @bold{@larger{homesick}} and ask you to go visit her family.
+
+@section{The Consequences of Visiting Her Family}
+When you go get dressed so you can meet her family, she'll find you'r old tap shoes and she'll want to dance.
+
+```
+This definitely gave the HTML page a more visually appealing feel:
+
+![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_2.png)
+
+Finally, I decided to play around with the itemlist operation. I added a new section About the Author. I then created an itemlist and populated it with items containing details regarding the author's life.
+
+```
+#lang scribble/base
+
+@title{If You Give a Pig a Pancake}
+
+@centered{If you give a Pig a pancake, she'll want some syrup to go with it.
+You'll give her some of your favorite maple syrup, and she'll probably get all sticky.
+@italic{She'll want to take a bath...}}
+
+@section{The Consequences of Bubbles}
+When she's in the bath, she'll ask you for some bubbles and a toy. When you give her the bubbles and your rubber duck, she'll feel @bold{@larger{homesick}} and ask you to go visit her family.
+
+@section{The Consequences of Visiting Her Family}
+When you go get dressed so you can meet her family, she'll find you'r old tap shoes and she'll want to dance.
+
+@section{About the Author: Laura Numeroff}
+@itemlist[@item{Laura Numeroff is the author of many books for young readers including the If you Give... series,}
+          @item{She loves to play tennis and to travel, and } 
+          @item{She lives in Los Angeles California.}
+          ]
+```
+
+The final output contained a couple paragraphs about the story and information about the author:
+
+![alt tag] (https://github.com/rajiaxoxo/FP2/blob/master/screenshot_3.png)
+
+That was fun! Please let me know if you have any questions :)
+Best,
+Rajia
