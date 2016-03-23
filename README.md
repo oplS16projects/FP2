@@ -1,60 +1,38 @@
 # Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Rackunit
+My name: John Perkins
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+Originally I was going to do the net/url library, but I dropped this as it was confusing for me. I instead switched to the rackunit or racket unit testing library. The library seemed pretty simple and focused, introducing three basic concepts: checks, test cases, and test suites. 
+The first real introduction to unit testing comes in the form of basic eq? eqv? equal? procedures. This was pretty similar to a worksheet a while back and I tried it out with other types of data than what was given on that worksheet. 
+Here is testing two numbers
+```racket
+(check-eq? 4 4)
+(check-eqv? 4 4)
+(check-equal? 4 4)
+```
+The results of this is that it is all true. And then testing two lists of the same number,
+```racket
+(check-eq? (list 4) (list 4))
+(check-eqv? (list 4) (list 4))
+(check-equal? (list 4) (list 4))
+```
+The results of which is that equal? Is the last test is only one that is true.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+These most of the time are expanded to be in the form of check-eq?, check-not-equal?, and many others. The one that I liked the most from this is the simple check-= this can be used, for example, to see if a number is within a certain amount of another number. 
+```racket
+(check-= 5 4 1 "within 1")
+(check-= 5 3 1 "not within 1")
+```
+These concepts form the base blocks of building test cases. Test cases are basically a series of checks which can be named and will also short circuit if a single test fails. These test cases also have a lot of built in functionality such as test-equal automatically including check-equal as shown below.
+```racket
+(test-begin
+    (check-equal? 50 50))
+(test-equal? "test if 50 and 50 are equal." 50 50)
+```
+Finally these both are combined to make test-suites which can have a before and after messages. These test-suites are simply larger amounts of related checks and test cases.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+The aspect about this I like the most I think is the fact that the results of these three types of tests can be displayed in easier-to-read formats such as windows which have all the data related to the tests included inside of them.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+![Test Case GUI](https://github.com/raghnall6402/FP2/blob/master/fp2-rackunit-example-v2.png)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+Overall I didn’t expect to get that much out of this library but it turned out to be pretty interesting to know how to implement some form of unit testing in my final project.
