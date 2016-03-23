@@ -17,3 +17,6 @@ From there I was able to find out other cities that are listed in the list that 
 
 
 For this part of the project, I decided to use tzinfo library. This library has a list of timezones of cities all around the world. Though it might not be entirely complete, it covers the major cities in the major countries all around the world. It is useful as it is easily organized by country code and is able to show which timezone a specific country belongs in.
+
+Here is a picture of how the code output would look like:
+![Example Query](https://github.com/YusufSM/FP2/blob/master/tzinfo%20Code%20Screenshot.png?raw=true)
