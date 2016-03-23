@@ -60,4 +60,7 @@ data depending on your needs.
                                    #:alphas '(2/3 1 2/3)))
 ```
 
+![histo_graph2](https://cloud.githubusercontent.com/assets/17748575/13971976/f89e0c38-f06a-11e5-9212-26352885fe55.png)
+
+
 
