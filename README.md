@@ -30,7 +30,9 @@ The really cool thing is you can click and drag and rotate the image.
 
 ![plane_nose](https://cloud.githubusercontent.com/assets/17748575/13971705/c3baf460-f068-11e5-8d17-2a4d9b5336b7.png)
 
+Then the same image rotated after I clicked and draged it around. 
 
+![plane_nose_rotated](https://cloud.githubusercontent.com/assets/17748575/13971758/3ed95d1c-f069-11e5-8855-d794538be413.png)
 
 
 
