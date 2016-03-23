@@ -2,26 +2,28 @@
 ## My Library: Rackunit
 My name: John Perkins
 
-Originally I was going to do the net/url library as I had little experience in anything related to that subject. I quickly realized after it that I had absolutely zero clue what was going on with it so I switched over to the rackunit or racket unit testing. Overall the library seems pretty simple and focused on its topic of unit testing. Some concepts that I learned more directly through this although I was exposed to them through the various test files located for assignments are: file linking, test suites, and so forth.
-
-The first new keyword or whatever they are called in racket introduced is the provide keyword. This keyword from what I can gather is the opposite of the require procedure in which whatever arguments that it has are items being exported vs imported.
-
-The first real introduction to unit testing comes in the form of basic eq? eqv? equal? procedure. This was pretty fun to mess with as we had that worksheet a while back that asked about the same concepts and here it was to mess with directly.
-
+Originally I was going to do the net/url library, but I dropped this as it was confusing for me. I instead switched to the rackunit or racket unit testing library. The library seemed pretty simple and focused, introducing three basic concepts: checks, test cases, and test suites. 
+The first real introduction to unit testing comes in the form of basic eq? eqv? equal? procedures. This was pretty similar to a worksheet a while back and I tried it out with other types of data than what was given on that worksheet. 
 Here is testing two numbers
 ```racket
 (check-eq? 4 4)
 (check-eqv? 4 4)
 (check-equal? 4 4)
 ```
-
-And then testing two lists of the same numbers
+The results of this is that it is all true. And then testing two lists of the same number,
 ```racket
 (check-eq? (list 4) (list 4))
 (check-eqv? (list 4) (list 4))
 (check-equal? (list 4) (list 4))
 ```
+The results of which is that equal? Is the last test is only one that is true.
 
-After those basic concepts come more complex forms of a list of tests which is useful if you want something to short circuit, such as testing a predecate such as odd? or even? The last idea of rackunit introduced in the quick-start guide are test suites which are pretty self explainatory, but generally they are tests which are combined into a whole that usually would test one specific piece of code in immense detail.
+These most of the time are expanded to be in the form of check-eq?, check-not-equal?, and many others. The one that I liked the most from this is the simple check-= this can be used, for example, to see if a number is within a certain amount of another number. 
 
-The test resuits of these unit tests are also displayed in a nicer to read format for me where it will display a given error message and formatting with lines.
+These concepts form the base blocks of building test cases. Test cases are basically a series of checks which can be named and will also short circuit if a single test fails. These test cases also have a lot of built in functionality such as test-equal automatically including check-equal as shown below.
+
+Finally these both are combined to make test-suites which can have a before and after messages. These test-suites are simply larger amounts of related checks and test cases.
+
+The aspect about this I like the most I think is the fact that the results of these three types of tests can be displayed in easier-to-read formats such as windows which have all the data related to the tests included inside of them.
+
+Overall I didn’t expect to get that much out of this library but it turned out to be pretty interesting to know how to implement some form of unit testing in my final project.
