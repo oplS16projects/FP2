@@ -1,60 +1,31 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+My name: Jeremy Daigneau
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+For this exploration, I used the plot-gui-lib. This library provides procedures that can produce a large array of different data visualization models. These include simple two dimensional line graphs to more complex three dimensional sphere visualizations. The resulting models are interactable and can be zoomed in and out or rotated if the model is three dimensional. I first used the basic "plot" procedure. This takes a function to be plotted and the boundaries to set. It also takes a label to be used in the legend. The second procedure is "plot3d". This takes the function to be plotted and boundaries as well. Next, I use this procedure with the polar3d procedure to create a 3d sphere plot. This has a color, altitude, and line type settings. Next, I use "plot" with a list of axes and graphs them all on the same plane. This has the same customizeable attributes as the last one. Finally, I used plot3d and polar3d again with boundaries between -1 and 1. This created a sphere with different holes. The library is really interesting to use and has large collection of different visualization tool.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+```
+(require plot)
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+(plot (function sin (- pi) pi #:label "y = sin(x)")) ;Plots a two dimensional line graph. Sets -pi and pi as the boundaries
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+(plot3d (surface3d (λ (x y) (* (sin x) (sin y))) ;plots a three dimensional graph with use of the surface 3d procedure. -pi and pi are the boundaries horizontally and vertically
+                   (- pi) pi (- pi) pi))
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+(plot3d (polar3d (λ (θ ρ) 1) #:color 5 #:line-style 'transparent) ;plots a three dimensional sphere with a color, line style, and altitude attributes.
+        #:altitude 50)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+(plot (list (axes) ;plots multiple two dimensional line graphs on a single coordinate plane.
+            (function sqr -3 3)
+            (function (λ (x) x) #:color 1 #:style 'dot)
+            (inverse sqr -2 2 #:color 5)))
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+(plot3d (polar3d (λ (θ ρ) 1) #:color 9 #:line-style 'transparent) ;Another sphere plot. The bounds are between -1 and 1 which cut off the axial poles, creating a sphere with holes of different sizes.
+          #:x-min -0.3 #:x-max 0.9
+          #:y-min -0.2 #:y-max 0.8
+          #:z-min -0.6 #:z-max 0.8
+          #:altitude 40)
+```
+![alt tag](https://github.com/jdaigneau/FP2/blob/master/Screen%20Shot%202016-03-23%20at%2011.00.25%20PM.png)
+![alt tag](https://github.com/jdaigneau/FP2/blob/master/Screen%20Shot%202016-03-23%20at%2011.00.54%20PM.png)
+![alt tag](https://github.com/jdaigneau/FP2/blob/master/Screen%20Shot%202016-03-23%20at%2011.01.01%20PM.png)
+![alt tag](https://github.com/jdaigneau/FP2/blob/master/Screen%20Shot%202016-03-23%20at%2011.01.08%20PM.png)
+![alt tag](https://github.com/jdaigneau/FP2/blob/master/Screen%20Shot%202016-03-23%20at%2011.01.20%20PM.png)
