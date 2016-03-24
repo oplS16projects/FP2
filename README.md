@@ -10,4 +10,14 @@ After I produced this graph successfully, I then got into more complex looking g
 
 ![alt tag] (https://github.com/JoshB53/FP2/blob/master/Graph2.png)
 
+And here is the code sinppet
+
+```
+(plot (contours (λ (x y) (- (sqr x) (sqr y)))
+                  -4 2 -4 2 #:label "z"))
+```
+
+Lastly, I produced a graph that has multiple plot points on it.  The image is below
+
+
 The code is straightforward, where as the syntax is easy to understand. Customizing the stickman reminded me of CSS properties we used back in GUI 1 and 2. The imports I used in my code are copied below.
