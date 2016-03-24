@@ -10,6 +10,7 @@ For my second exploration I decided to play around with the leftist trees librar
 (define tree-of-strings (leftist-tree string<=? '("once" "upon" "a" "time")))
 
 ```
+![fp2 image](https://cloud.githubusercontent.com/assets/17771791/14005126/722ca9a8-f136-11e5-9167-1ac1b0a28984.jpg)
 
 Once I defined them, in the REPL I ran empty-tree-of-strings which returned #<leftist-tree [empty]>.  This tells me that the empty-tree-of-strings is actually empty.  Also I ran tree-of-strings in the REPL which returned #<leftist-tree [count=4; min="a"]>.  This tells me the number of elements in the tree as well as the min value of just "a".
 
