@@ -19,5 +19,6 @@ And here is the code sinppet
 
 Lastly, I produced a graph that has multiple plot points on it.  The image is below
 
+![alt tag] (https://github.com/JoshB53/FP2/blob/master/Graph3.png)
 
-The code is straightforward, where as the syntax is easy to understand. Customizing the stickman reminded me of CSS properties we used back in GUI 1 and 2. The imports I used in my code are copied below.
+The code was pretty straightforward, where as the syntax was easy to understand.  If I had some valuable data to graph, this library would be very useful.  I also learened that once the graph is produced, you can zoom in and out of sections in the graph.  Pretty cool.
