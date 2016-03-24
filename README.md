@@ -40,7 +40,7 @@ This first was done by calculating the distance formula:
     (sqrt (+ (sqr (- x cx)) (sqr (- y cy)) (sqr (- z cz)))))
 ```
 
-After this was done, it was a matter of creating a list of 3D isosurfaces that each held an object. My goal was to make them all intersect in a unique pattern, and the results of different values for the distance formula can be seen in <b>Fig. 2</b> and <b>Fig. 3</b>.
+After this was done, it was a matter of creating a list of 3D isosurfaces that each held an object. My goal was to make them all intersect in a unique pattern, and the results of different values for the distance formula can be seen in <b>Fig. 2</b>.
 
 ```racket
 ;Successful attempt at plotting graphs in the same window
@@ -66,4 +66,8 @@ After this was done, it was a matter of creating a list of 3D isosurfaces that e
           #:z-min -1 #:z-max 1
           #:altitude 25)
 ```
+![FP1 Image Output](https://github.com/skhoulani/FP2/blob/master/NestedSpheres.png)
+<b>Figure 2.</b>
+
+
 
