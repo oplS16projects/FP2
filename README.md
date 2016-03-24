@@ -66,6 +66,9 @@ After this was done, it was a matter of creating a list of 3D isosurfaces that e
           #:z-min -1 #:z-max 1
           #:altitude 25)
 ```
+
+![FP1 Image Output](https://github.com/skhoulani/FP2/blob/master/cos.png)
+<b>Figure 1.</b>
 ![FP1 Image Output](https://github.com/skhoulani/FP2/blob/master/NestedSpheres.png)
 <b>Figure 2.</b>
 
