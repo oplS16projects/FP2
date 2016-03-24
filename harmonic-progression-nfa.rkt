@@ -9,7 +9,7 @@
 ;;              harmonic progressions
 ;;
 ;;              This automaton is a work in progress,
-;;              and might not accept all valid
+;;              and does not accept all valid
 ;;              harmonic progressions
 ;;
 ;;        Note: Roman Numerals represeprent
