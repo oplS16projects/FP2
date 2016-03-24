@@ -1,60 +1,76 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: plot: graph plotting
+My name: Samir Khoulani
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+The next topic I was interested in was the plot libary, as I remain interested in calculus in general. To begin, I experimented with 2D graphing. I played around with a sinusoidal function, and its bounds, and came up with something simple as shown in <b>Fig. 1</b>. The code for this first exercise:
+```racket
+(plot (function cos (- (/ pi 2)) (/ pi 2) #:label "y = cos(x)"))
+```
+The next thing I moved to was plotting in 3D. I attempted to plot more than one sphere in the same graph, but was unable to because of the incorrect syntax I was using to list them. This was in part due to the incorrect placement of the x,y, and z minima and maxima definititions.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+```racket
+;First failed attempt at plotting multiple 3-D graphs. Plotted three graphs in different windows
+(plot3d (list
+         (axes)
+         ((polar3d (λ (θ ρ) 1) #:color 2 #:line-style 'transparent)
+          #:x-min -0.3 #:x-max 0.8
+          #:y-min -0.3 #:y-max 0.8
+          #:z-min -0.3 #:z-max 0.8
+          #:altitude 25)
+        ((polar3d (λ (θ ρ) 1) #:color 1 #:line-style 'transparent)
+          #:x-min -0.2 #:x-max 0.5
+         #:y-min -0.2 #:y-max 0.5
+          #:z-min -0.2 #:z-max 0.5
+          #:altitude 25)
+        ((polar3d (λ (θ ρ) 1) #:color 3 #:line-style 'transparent
+          #:x-min -0.7 #:x-max 0.8
+          #:y-min -0.7 #:y-max 0.8
+          #:z-min -0.7 #:z-max 0.8
+          #:altitude 25))))
+```
 
-You can still use these in your project, but you must explore different libraries for this assignment.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+Moving further through the library brought me to the correct method of plotting 3D graphs in the same window. 
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+This first was done by calculating the distance formula: 
+```racket
+(define ((dist cx cy cz) x y z)
+    (sqrt (+ (sqr (- x cx)) (sqr (- y cy)) (sqr (- z cz)))))
+```
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+After this was done, it was a matter of creating a list of 3D isosurfaces that each held an object. My goal was to make them all intersect in a unique pattern, and the results of different values for the distance formula can be seen in <b>Fig. 2</b>.
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+```racket
+;Successful attempt at plotting graphs in the same window
+(plot3d (list (isosurface3d (dist  1/4 1/4 1/4) 0.995
+                              #:color 1 #:alpha 0.8 #:samples 21)
+                (isosurface3d (dist 1/4  1/4  1/4) 0.995
+                              #:color 2 #:alpha 0.8 #:samples 21)
+                 (isosurface3d (dist 1/4  -1/4  -1/4) 0.995
+                              #:color 3 #:alpha 0.8 #:samples 21)
+                 (isosurface3d (dist 1/4  -1/4  1/4) 0.995
+                              #:color 4 #:alpha 0.8 #:samples 21)
+                 (isosurface3d (dist -1/4  1/4  -1/4) 0.995
+                              #:color 5 #:alpha 0.8 #:samples 21)
+                 (isosurface3d (dist -1/4  1/4  1/4) 0.995
+                              #:color 6 #:alpha 0.8 #:samples 21)
+                 (isosurface3d (dist -1/4  -1/4  -1/4) 0.995
+                              #:color 5 #:alpha 0.8 #:samples 21)
+                 (isosurface3d (dist -1/4  -1/4  1/4) 0.995
+                              #:color 5 #:alpha 0.8 #:samples 21))
+        
+          #:x-min -1 #:x-max 1
+          #:y-min -1 #:y-max 1
+          #:z-min -1 #:z-max 1
+          #:altitude 25)
+```
 
-Code should be delivered in two ways:
+![FP1 Image Output](https://github.com/skhoulani/FP2/blob/master/cos.png)
+<b>Figure 1.</b>
+![FP1 Image Output](https://github.com/skhoulani/FP2/blob/master/NestedSpheres.png)
+<b>Figure 2.</b>
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
-Ask questions publicly in the email group.
 
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
