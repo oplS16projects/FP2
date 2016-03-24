@@ -1,60 +1,43 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Simple-Qr: Qr Code generator
+My name: Krin Yongvongphaiboon
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+# About the API
+[Simple-Qr](https://docs.racket-lang.org/simple-qr/index.html) allow you to generate Qr code.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+# The code
+Simple Qr is simple to use just like the name of it. There are two main part you need to look at. 
+* data - string
+* path - the file name of you Qr code
+* module width - control the size of the image
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+> Standard image
+```racket
+(qr-code "https://github.com/oplS16projects/FP2/pulls/aboutkrin"
+         "FP2-standard.png") 
+```
+> Small image
+```racket
+(qr-code "https://github.com/oplS16projects/FP2/pulls/aboutkrin"
+         "FP2-small.png" #:module_width 2) 
+```
+> Large image
+```racket
+(qr-code "https://github.com/oplS16projects/FP2/pulls/aboutkrin"
+         "FP2-standard.png" #:module_width 10)) 
+```
+![alt tag](https://github.com/aboutkrin/FP2/blob/master/screenshot-code.png)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+# Output
+I make three different outputs. Small, standard, and large image file. The default image size for standard version is 5, small is 2, and large is 10.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+#Standard
+![alt tag](https://github.com/aboutkrin/FP2/blob/master/FP2-standard.png)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+#Small
+![alt tag](https://github.com/aboutkrin/FP2/blob/master/FP2-small.png)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+#Large
+![alt tag](https://github.com/aboutkrin/FP2/blob/master/FP2-large.png)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
 
-Code should be delivered in two ways:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
