@@ -21,4 +21,5 @@ I played with all the functions provided by cpuinfo. Seeing no useful way to acc
 ```
 
 Below is a screenshot of the output of my code:
-![figure1](http://cs.uml.edu/~mbowe/OPL/fp2/fig1.png)
+
+![figure1](http://www.cs.uml.edu/~mbowe/OPL/fp2/fig1.png)
