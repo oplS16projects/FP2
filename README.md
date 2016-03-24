@@ -1,60 +1,26 @@
 # Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+##Part 1: Try a Library
+I have used (web-server/insta) library for FP2
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+##Part 2: Write your Report
+#### My Library: (web-server/insta)
+My name: Udit Bhansali
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+At first I started working on (htmlPrag) library, but later I found out the library I'm using is obsolete. I later switched to (web-server/insta) library. This language is designed for writing simple web servers as per https://docs.racket-lang.org/web-server/run.html. I plan on adding a static list of posts on the web page.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+Screenshot
+![FP2](http://i.imgur.com/Ts9kav4.png?1)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+Code Excerpt
+```
+#lang web-server/insta
+ 
+(define (start request)
+  (response/xexpr
+   '(html
+     (head (title "Organization of Programming Languages!"))
+     (body (h1 "Under construction"))
+     (body (h1 "This is an implementation of web-server/insta library")
+           (img ([src "http://i.imgur.com/TcWAYBC.png"]))))))
+```
