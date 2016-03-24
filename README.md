@@ -34,7 +34,7 @@ I messed around with the Math Library and checked out how to use different funct
 ```
 
 
-I messed around witha few other Math functions. One was the random number generator which could be useful in creating games and having a random probability of an outcome in let's say picking a number out of a hat. This was pretty easy to use because all you had to do was callthe random integer function and a min and max (a range) and it would spit out a random number. I also tried the divisor function which would take in a number and print out all of the factors including 1 and itself. You can also give this a negitive number and the output would be the same. The last fuction is the map fibonacci which would print out the next x amount of fibonacci numbers. 
+I also messed around with a few other Math functions. One was the random number generator which could be useful in creating games having a random probability of an outcome in say picking a number out of a hat or rolling an equal sided die. This was pretty easy to use because all you had to do was callthe random integer function and a min and max (a range) and it would spit out a random number. I also tried the divisor function which would take in a number and print out all of the factors including 1 and itself. You can also give this a negitive number and the output would be the same. The last fuction is the map fibonacci which would print out the next x amount of fibonacci numbers. 
 
 ```racket
 ;Pick a random integer from 1 to 50
