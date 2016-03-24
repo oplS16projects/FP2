@@ -53,5 +53,8 @@ This block of code is displaying a solid magenta triangle made of mini triangles
     [else (define t (sierpinski (- n 1)))
           (freeze (above t (beside t t)))]))
 ```
+Original
 ![alt tag](https://raw.githubusercontent.com/LauraLucaciu/FP2/master/OriginalTriangle.jpg)
+
+Modified
 ![alt tag](https://raw.githubusercontent.com/LauraLucaciu/FP2/master/Modified1.jpg)
