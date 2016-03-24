@@ -2,9 +2,8 @@
 DUE Wednesday, March 23, 2016
 
 ## My Library: 	Simple-Qr: Qr Code generator
-My name: Cody Mulkern
-Write what you did!
-Remember that this report must include:
+# name: Cody Mulkern
+
 
 I used the Simple-Qr library to create links to lmgtfy.com(let me google that for you) and google the question that you ask it. This seemed simple enough I just needed to be able to figure out how lmgtfy.com formatted their searches in the url. After a quick search on their website I figured it out. ``` lmgtfy.com/?q=(questions) ``` This was the format but then I found out they used '+' between spaces in a search so I used a regular expression to replace all " " with a "+". 
 ```racket
