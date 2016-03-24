@@ -1,27 +1,6 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
-
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
-
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
-
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
-
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
 ## My Library: cpuinfo
 My name: Michael Bowe
-I played with all the functions provided by cpuinfo. Seeing no useful way to access most of the information programmatically, I wrote accessors for some of the more interesting cpu statistics. For example:
+I played with all the functions provided by cpuinfo. Seeing no useful way to access most of the information programmatically, I wrote accessors for some of the more interesting cpu statistics. Since the cpuinfo obect is implemented as a list of cons cells, I replaced the outermost cdr with a car until I found the correct key cdr'ing down the list to make sure I was getting the correct information. For example:
 
 ```
 #lang racket
