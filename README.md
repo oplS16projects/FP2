@@ -1,60 +1,44 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: RSound
+My name: Willis Hand
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+I chose to work with sound because, well, sound is fun! Specifically I wanted to explore playback timing and sequencing. To begin with, I composed a little jingle using Musescore that begins with a melody, and then has the drum part after it. Next, I used Audacity to break the .wav into two different .wav files, namely sample and drumpart.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+Below is the simplest code that can be used to play these files back:
+```
+(require rsound)
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+(define mysound (rs-read (string->path "sample.wav")))
+(define drumpart (rs-read (string->path "drums.wav")))
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+(play mysound)
+(play drumpart)
+```
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+If you try this at home (recommended) you will notice that the sounds are not played sequentially. This has to do with the play method creating seperate playback objects that function seperately. While this is easy to incorporate into programs due to its simplicity, I really wanted to be able to control the precise timing of the clips.
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+Luckily, RSound has the ability to make a stream that has a single counter for timing purposes. `(define astream (make-pstream))` This will create and start the stream that I named "astream". Provided is a procedure that gets the current "frame" (time counter) so that you can easily have the stream function as if you were using the play procedure.
+```
+(require rsound)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+(define mysound (rs-read (string->path "sample.wav")))
+(define drumpart (rs-read (string->path "drums.wav")))
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+(define astream (make-pstream))
+(pstream-queue astream mysound (pstream-current-frame astream))
+(pstream-queue astream drumpart (pstream-current-frame astream))
+```
+Sadly, this also plays the clips simultaneously, since both are scheduled to start at the same frame. To deal with this, there is a procedure to get the length in frames of an audio file. `(rs-read-frames (string->path "sample.wav"))` By simply adding this to the current frame, playback of one clip can be delayed until after the other clip has finished.
+```
+(require rsound)
 
-Code should be delivered in two ways:
+(define mysound (rs-read (string->path "sample.wav")))
+(define drumpart (rs-read (string->path "drums.wav")))
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+(define astream (make-pstream))
 
-Ask questions publicly in the email group.
+(pstream-queue astream mysound (pstream-current-frame astream))
+(pstream-queue astream drumpart
+               (+ (pstream-current-frame astream) (rs-read-frames (string->path "sample.wav"))))
+```
 
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+This finally allowed me to play the two files as if I were playing the original file. The uses of this become obvious when applied to composing a song using small clips, since a large number of sounds can be queued multiple times at very specific frames.
