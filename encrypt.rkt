@@ -19,7 +19,7 @@
   (sub1 (mult-mod (add1 n) c 257)))
 
 ; image from: https://www.pinterest.com/pin/12173861463144574
-(define beach insert-pic-here) ; <- this is where beach.png is pasted, file is too large fro GitHub when included
+(define beach insert-pic-here) ; <- this is where beach.png is pasted, file is too large for GitHub when included
 
 
 (define scrambled-red
