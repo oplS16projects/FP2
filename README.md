@@ -1,60 +1,60 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: 2htdp/image
+My name: Laura Lucaciu
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+I have played around with this library. 
+The original code was displaying a triangle.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+This block of code is installing the library 2htdp/image, and Draws the Sierpinski triangle. The triangle is created by multiple triangles, made of different shape and color.
+First draw the cropped red solid triangle into the bitmap and then uses the bitmap to draw that image afterwards.
+It is displayed a list of mini triangles placed in a horizontal and vertical, and is drawn multiple times.
+The condition to display the list of the triangles is that n not to be zero.
+```
+#lang racket  ; A picture
+(require 2htdp/image)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+(let sierpinski ([n 6])
+   (cond
+    [(zero? n) list(triangle 4 'solid 'red)]
+          [else (define t (sierpinski (- n 1)))
+          (freeze (beside t (above t t)))]))
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+This block represents a line of multiple blue triangles with the size changed. 
+This time is created only horizontal.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+```
+(let sierpinski ([n 4])
+  (cond
+    [(zero? n) list(triangle 8 'solid 'blue)]
+        [else (define t (sierpinski (- n 1)))
+          (freeze (beside t (beside t t)))]))
+          
+```
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+This block displays a green solid triangle made of circles rotated.
+```
+(let sierpinski ([n 2])
+  (cond
+    [(zero? n) list(circle 10 'solid 'green)]
+        [else (define t (sierpinski (- n 1)))
+          (freeze (beside t (above t t)))]))
+```
 
-Code should be delivered in two ways:
+This block of code is displaying a solid magenta triangle made of mini triangles.
+```
+(let sierpinski ([n 3])
+  (cond
+    [(zero? n) list(triangle 20 'solid 'magenta)]
+    
+    [else (define t (sierpinski (- n 1)))
+          (freeze (above t (beside t t)))]))
+```
+Original
+![alt tag](https://raw.githubusercontent.com/LauraLucaciu/FP2/master/OriginalTriangle.jpg)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+Modified
+![alt tag](https://raw.githubusercontent.com/LauraLucaciu/FP2/master/Modified1.jpg)
