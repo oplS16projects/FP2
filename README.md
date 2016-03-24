@@ -37,3 +37,5 @@ I personally wanted to make a better procedure
 that would check if what's is given is a list
 or a single functions and would handle it from there.
 
+<img height="1000" src="https://github.com/ABZaxxon/FP1/blob/master/FP2_Souce_Code.png"/>
+<img height="1000" src="https://github.com/ABZaxxon/FP1/blob/master/FP2_Output_Picture.png"/>
