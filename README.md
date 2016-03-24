@@ -10,55 +10,107 @@ There are of course more features than that but its the basic concept
 I began by making movements to write out the letters OPL
 
 to write the 'O' I wrote a primitive proc to that takes 2 args for run and angle to turn
+This could be optimized by using the mirror feature as also noted it will not properly function
+with all angles
 
 ```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
-```
+    (define (circ run ang numdegrees );will work with most angles
+
+
+          (define (helper run ang )
+      (list
+
+       (forward run)
+            (turn-left ang)))
+
+      
+      (repeat (/ numdegrees ang) (helper run ang)))
+
+
+
 ```
 
 
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+for the 'P' i used the mirror function and it looks like this
+```
 
-Code should be delivered in two ways:
+(define upperP 
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+(list 
 
-Ask questions publicly in the email group.
+(mirror-x-on) 
+       (circ  1 3 110)
+(mirror-x-off)
+(turn-left 70)
+(forward 75)
+       ))
 
-## How to Prepare and Submit this assignment
+```
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+The L was pretty straight forward I started the draw-custom procedure which allowed me to specify the window size
+this proc mainly consisted of toggling settling like pen-up, pen-down, change-color, calling procs eg upperP
+and stamper, which allowed for each movement instead of drawing a line would allow me to draw a shape/pattern
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+```
+(stamper-on circshapes) n")))
+
+(if (<= size 0)
+        empty
+        (cons (pulled-regular-polygon size 4 2 52 "solid" (make-color (random 255)
+                                                      (random 255)
+                                                      (random 255))   )
+      
+    (polygons (sub1 size)))))
+
+
+  (define (fakemoves moves)
+  (define helper 
+   
+      (list (forward .01)
+            (turn-left 180)))
+               (repeat moves helper )) 
+```
+
+The above is the pattern on the second  'O'  in the output image
+
+
+the bottom left polygon was implemented with a fake moves proc, where it would move .01 forward and 180 I also had it recursively draw on top of itself while changing colors randomly this resulted in the design. Below is the code used  
+```
+
+ (define (polygons size)
+     
+    (if (<= size 0)
+        empty
+        (cons (pulled-regular-polygon size 4 2 52 "solid" (make-color (random 255)
+                                                      (random 255)
+                                                      (random 255))   )
+    (polygons (sub1 size)))))
+
+
+
+```
+
+I then drew a clover using mirror and pulled-regular-polygon.
+```
+(stamper-on (list (pulled-regular-polygon 100 4 5 30 "solid" "black")
+                  (pulled-regular-polygon 98 4 5 30 "solid" "green")))
+(go-to 900 300)
+(pen-down)
+(fakemoves 1 )
+(change-color "black")
+(stamper-off)
+
+;below draws the 'x' on the clover
+(mirror-x-on)
+(turn-right 225 )
+(pen-up)
+(go-to 812 388)
+(pen-down)
+(forward 250)
+(mirror-x-off)
+ ```
+
+  ![alt tag](https://raw.githubusercontent.com/ia-n/FP2/master/f2pout.png)
