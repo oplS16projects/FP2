@@ -8,9 +8,11 @@
 ;;              Automaton which accepts valid
 ;;              harmonic progressions
 ;;
-;;              This automaton is a work in progress,
-;;              and might not accept all valid
-;;              harmonic progressions.
+;;              Due to discrepncies between common 
+;;              musical styles, this automon might not
+;;              accept some harmonic progressions that 
+;;              are valid in some styles and invalid in
+;;              others.
 ;;
 ;;        Note: Roman Numerals represeprent
 ;;              harmonic function, and arabic
