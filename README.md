@@ -95,4 +95,4 @@ Here is some of the test code:
 ```
 
 Here is a screenshot of the program output:
-
+![Program Output Screenshot](https://github.com/benoid/FP2/blob/master/output-screenshot.png)
