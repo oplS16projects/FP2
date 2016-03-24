@@ -49,3 +49,4 @@ I also messed around with a few other Math functions. One was the random number 
 
 
 
+![Image 1](https://github.com/JohnShep/FP2/blob/master/RacketOutput.pngpng?raw=true)
