@@ -1,0 +1,59 @@
+#lang racket/gui ;a must have to create a window apparently.
+(require (lib "gl.ss" "sgl") (lib "gl-vectors.ss" "sgl")) ;
+;using sgl version since that seems to be the best updated
+
+
+;opengl requires window resize as a parameter
+(define (resize w h)
+  (glViewport 0 0 w h)
+  #t
+  )
+(define (update)
+  (glClearColor 0.0 0.0 0.0 0.0) ;clears scene for every refresh
+  (glClear GL_COLOR_BUFFER_BIT) ;
+  (glColor3d 1.0 1.0 1.0) ;sets a back color. OpenGL draws bottom up. First thing drawn is in the back
+                          ;unless you do some glblending wizardry
+  (glMatrixMode GL_PROJECTION)
+  (glLoadIdentity)
+  (glOrtho 0.0 1.0 0.0 1.0 -1.0 1.0) ;orthographic projection. Simply just 2D rendering focus
+  (glMatrixMode GL_MODELVIEW)
+  (glLoadIdentity)
+  (glBegin GL_QUADS) ;drawing a rectangle. 
+  (glVertex3d 0.25 0.25 0.0);notice the values? 
+  (glVertex3d 0.75 0.25 0.0);they're in context to the window size
+  (glVertex3d 0.75 0.75 0.0);problem with opengl is that it has no idea of a 'camera' or viewing distance
+  (glVertex3d 0.25 0.75 0.0);unless you specify it. If you change window size, the rectangle
+  (glEnd))                  ;will stay the same size relative to the window its in.
+                            ;OpenGL wrappers all account for this. I'm not building one so I'll
+                            ;leave it as is.
+
+(define my-canvas%                            ; I have no idea what these three lines 
+  (class* canvas% ()                          ; are doing from a racket perspective.
+    (inherit with-gl-context swap-gl-buffers) ; Good thing the template is pretty helpful.
+
+   (define/override (on-paint) ;general body of openGL contexts has inner function calls for drawing.
+      (with-gl-context
+        (lambda ()
+          (update)
+          (swap-gl-buffers)
+        )
+      )
+    )
+
+    (define/override (on-size width height) ;nice for resizing
+      (with-gl-context
+        (lambda ()
+          (resize width height)
+        )
+      )
+    )
+
+    (super-instantiate () (style '(gl))) ;another racket mystery. 
+  )
+)
+
+(define win (new frame% (label "OPEN GL") (min-width 200) (min-height
+200))) ;necessary for creating a OpenGL context. 
+(define gl  (new my-canvas% (parent win))) ;links context to canvas.
+
+(send win show #t) ;now display the window.
