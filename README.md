@@ -5,7 +5,7 @@ DUE Wednesday, March 23, 2016
 My name: Laura Lucaciu
 
 
-I have played around with this library 
+I have played around with this library. 
 The original code was displaying a triangle.
 
 This block of code is installing the library 2htdp/image, and Draws the Sierpinski triangle. The triangle is created by multiple triangles, made of different shape and color.
