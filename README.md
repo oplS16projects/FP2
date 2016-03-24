@@ -2,8 +2,10 @@
 
 ## My Library: (library name here)
 My name: Aliyu Zakari
-Write what you did! Just added this
+Write what you did!
 Remember that this report must include:
+
+Making the effort and testing this with Xcode so dont take this part serious.
 
 * a narrative of what you did
 * highlights of code that you wrote, with explanation
