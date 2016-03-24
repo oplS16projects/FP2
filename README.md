@@ -7,7 +7,7 @@ I have used (web-server/insta) library for FP2
 #### My Library: (web-server/insta)
 My name: Udit Bhansali
 
-At first I started working on (htmlPrag) library, but later I found out the library I'm using is obsolete. I later switched to (web-server/insta) library
+At first I started working on (htmlPrag) library, but later I found out the library I'm using is obsolete. I later switched to (web-server/insta) library. This language is designed for writing simple web servers as per https://docs.racket-lang.org/web-server/run.html. I plan on adding a static list of posts on the web page.
 
 Screenshot
 ![FP2](http://i.imgur.com/Ts9kav4.png?1)
@@ -20,6 +20,7 @@ Code Excerpt
   (response/xexpr
    '(html
      (head (title "Organization of Programming Languages!"))
+     (body (h1 "Under construction"))
      (body (h1 "This is an implementation of web-server/insta library")
            (img ([src "http://i.imgur.com/TcWAYBC.png"]))))))
 ```
