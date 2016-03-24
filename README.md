@@ -11,7 +11,7 @@ The next topic I was interested in was the plot libary, as I remain interested i
 The next thing I moved to was plotting in 3D. I attempted to plot more than one sphere in the same graph, but was unable to because of the incorrect syntax I was using to list them. This was in part due to the incorrect placement of the x,y, and z minima and maxima definititions.
 
 ```racket
-;First failed attempt at plotting multiple 3-D graphs. Plotted three
+;First failed attempt at plotting multiple 3-D graphs. Plotted three graphs in different windows
 (plot3d (list
          (axes)
          ((polar3d (λ (θ ρ) 1) #:color 2 #:line-style 'transparent)
