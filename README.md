@@ -1,60 +1,57 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: 	Simple-Qr: Qr Code generator
+###Cody Mulkern
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+I used the Simple-Qr library to create links to lmgtfy.com(let me google that for you) and google the question that you ask it. This seemed simple enough I just needed to be able to figure out how lmgtfy.com formatted their searches in the url. After a quick search on their website I figured it out. ``` lmgtfy.com/?q=(questions) ``` This was the format but then I found out they used '+' between spaces in a search so I used a regular expression to replace all " " with a "+". 
+```racket
+(regexp-replace* #rx" " (string-append "lmgtfy.com/?q=" question) "+")
+```
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+The whole procedure is:
+```racket
+(define (make-qr-code-question question)
+  (qr-code (regexp-replace* #rx" " (string-append "lmgtfy.com/?q=" question) "+") (string-append question ".png" ))
+)
+```
+This allowed me to enter a question as a string and the procedure will create a lmgtfy.com search qr-code and create a .png file in the same directory that the racket program is run from.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+Here is an example of testing this procedure:
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/qr-code-test.png)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+which will produce this QR-code:
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/What%20is%20today's%20date.png)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+After getting this to work I felt that was kind of boring so and since I wanted to possibly do work with files for my project I decided to see if I could read in lists of Questions and make qr-codes for them all. This is what I ended up with:
+```racket
+;;
+;; I made this procedure to allow for reading multiple questions from a file.
+;; First it will read in all the lines and create a list in 'questions.
+;; Then it uses for-each to apply the make-qr-code-question procedure to make the qr-codes for each question.
+;;
+(define (questionsFromFile fileName )
+  ;;This line reads from the fileName provided by user
+  (define questions (file->lines fileName ))
 
-Code should be delivered in two ways:
+  ;;This for-each loop works like map but it only runs the procedure and does not need to return a new list.
+  ;;It will loop through the questions list and make a qr-code for each.
+  (for-each (lambda (x) (make-qr-code-question x)) questions)
+  
+)
+```
+Now for the data to test this I used a notepad app and added some questions in:
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/questionListTest.png)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+Now with a call to:
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/qr-codes-from-file.png)
 
-Ask questions publicly in the email group.
+This results in:
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/qr-codes-made-from-file.png)
 
-## How to Prepare and Submit this assignment
+Now if you have a smart phone you can break out the barcode scanner and check out the answers to the question and get a laugh from lmgtfy's sarcasm.
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/qr-on-barcode-scanner.jpg)
+![alt](https://raw.githubusercontent.com/Mulks/FP2/master/lmgtfy-search.jpg)
