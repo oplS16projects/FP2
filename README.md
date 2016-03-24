@@ -44,3 +44,5 @@ or a single functions and would handle it from there.
 <br>
 <img height="1000" src="https://github.com/ABZaxxon/FP2/blob/master/FP2_Output_Picture.png"/>
 <br>
+
+I hope to still explore and master more of these libraries. 
