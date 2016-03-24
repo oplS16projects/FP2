@@ -19,9 +19,27 @@ You can still use these in your project, but you must explore different librarie
 
 ##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
 
-## My Library: (library name here)
-My name:
-Write what you did!
+## My Library: cpuinfo
+My name: Michael Bowe
+I played with all the functions provided by cpuinfo. Seeing no useful way to access most of the information programmatically, I wrote accessors for some of the more interesting cpu statistics. For example:
+
+```
+#lang racket
+;get just the number of cpu cores w/o extaneous info
+(define (cpuinfo-corecount cpu)
+  (cdr
+   (car
+    (cdr
+     (cdr
+      (cdr
+       (cdr
+        (cdr
+         (cdr
+          (cdr
+           (cdr (cdr (cdr (cdr (cdr
+            (car cpu))))))))))))))))
+
+```
 Remember that this report must include:
 
 * a narrative of what you did
