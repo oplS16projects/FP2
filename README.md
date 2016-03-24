@@ -1,28 +1,32 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
-
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
-
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
-
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
+## My Library: Racket Turtle
+My name: Ian Roberts 
 Write what you did!
 Remember that this report must include:
+
+First I started by playing around with the basic functions, the idea of turtle can be generalized as a pointer 
+that has a move x forward and a turn x degrees
+There are of course more features than that but its the basic concept
+I began by making movements to write out the letters OPL
+
+to write the 'O' I wrote a primitive proc to that takes 2 args for run and angle to turn
+
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+```
+
+
 
 * a narrative of what you did
 * highlights of code that you wrote, with explanation
