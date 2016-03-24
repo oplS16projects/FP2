@@ -78,7 +78,7 @@ Resize function. Basically allows fullscreening. It's a native ability of GL ena
   )
 ```
 Resize in action.
-![Image](https://raw.githubusercontent.com/OhBehive/FP2/master/FullScreenBox.png)
+![Image](https://raw.githubusercontent.com/OhBehive/FP2/master/FullscreenBox.png)
 
 
 
