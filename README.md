@@ -1,60 +1,98 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+#My Library: automata
+My Name: David Benoit
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+What I did:
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+I created a Non-Deterministic Finite Automaton that accepts valid harmonic progressions.  
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+Here are some code examples:
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+;; Make a chord progression from
+;; strings of chord symbols
+(define make-prog list)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+;; Determine if a chord progression is valid
+;; Print and return result
+(define (valid-prog? prog)
+  (define prog-is-valid
+    (machine-accepts? chord-machine prog))
+  (display prog)
+  (display " ")
+  (cond (prog-is-valid
+         (display "is a valid harmonic progression.")
+         (newline)
+         #t)
+        (else
+         (display "is not a valid harmonic progression.")
+         (newline)
+         #f))) 
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+```
 
-Code should be delivered in two ways:
+Here is a code fragment of just the beginning of the automaton:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+```
+(define chord-machine
+  (nfa/ep (s1 s2 s5) (s1)
+       ;; Root Position Triads
+       [s1 (["I" (s1 s2 s3 s4 s5 s6 s7 s8 s9
+                  s10 s11 s12 s13 s14 s15 s16
+                  s17 s18 s19 s20 s21 s22 s23
+                  s24 s25 s26 s27 s28 s29 s30
+                  s31 s32 s33 s34 s35 s36 s37
+                  s38 s39 s40 s41 s42 s43)])]
+       [s2 (["II" (s5 s12)])]
+       [s3 (["III" (s4 s5 s6)])]
+       [s4 (["IV" (s2 s5 s7 s9 s16)])]
+       [s5 (["V" (s1 s6)])]
+       [s6 (["VI" (s2 s4 s5)])]
+       [s7 (["VII" (s1 s3)])]
+       
+```
 
-Ask questions publicly in the email group.
+Here is some of the test code:
 
-## How to Prepare and Submit this assignment
+```
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+;; Test whether the automaton works on
+;; a particular progression.
+(define (test-prog prog result)
+  (display "Expexcting result: ")
+  (display result)
+  (newline)
+  (display "Testing... ")
+  (newline)
+  (cond ((eq? (valid-prog? prog) result)
+         (display "Test Succeeded")
+         (newline)
+         #t)
+        (else
+         (display "Test Failed")
+         (newline)
+         #f)))
+```
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+```
+;; Make some progressions
+(define prog1 (make-prog "I" "VII-6" "I-6" "I"))
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+```
+
+```
+
+;; Test the progressions
+(newline)
+(display "Testing prog1")
+(newline)
+(test-prog prog1 #t)
+(newline)
+
+```
+
+Here is a screenshot of the program output:
+![Program Output Screenshot](https://github.com/benoid/FP2/blob/master/output-screenshot.png)
