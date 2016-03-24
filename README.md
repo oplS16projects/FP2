@@ -25,13 +25,13 @@ Simple Qr is simple to use just like the name of it. There are two main part you
 (qr-code "https://github.com/oplS16projects/FP2/pulls/aboutkrin"
          "FP2-standard.png" #:module_width 10)) 
 ```
-![alt tag](https://github.com/aboutkrin/FP2/blob/master/screenshot.png)
+![alt tag](https://github.com/aboutkrin/FP2/blob/master/screenshot-code.png)
 
 # Output
 I make three different outputs. Small, standard, and large image file. The default image size for standard version is 5, small is 2, and large is 10.
 
 #Standard
-![alt tag](https://github.com/aboutkrin/FP2/blob/master/screenshot.png)
+![alt tag](https://github.com/aboutkrin/FP2/blob/master/FP2-standard.png)
 
 #Small
 ![alt tag](https://github.com/aboutkrin/FP2/blob/master/FP2-small.png)
