@@ -9,8 +9,8 @@
 ;;              harmonic progressions
 ;;
 ;;              This automaton is a work in progress,
-;;              and does not accept all valid
-;;              harmonic progressions
+;;              and might not accept all valid
+;;              harmonic progressions.
 ;;
 ;;        Note: Roman Numerals represeprent
 ;;              harmonic function, and arabic
