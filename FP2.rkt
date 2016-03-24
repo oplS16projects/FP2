@@ -7,3 +7,5 @@
 
 (define a (function sqr (- 2) 2 ))
 (define b (inverse sqr (- 2) 2 ))
+
+;;(make-multi-graph (list a b))     Is how you use the procedure.
