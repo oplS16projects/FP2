@@ -46,7 +46,7 @@ To start I checked out the package doccumentation.  In the doccumentation there 
 ;this is my sample song which you can hear in the audio clip.
 ;if you're cool people you'll recognize it from The Legend of Zelda:OoT
 (define SongOfTime '((0 4) (-7 2) (-4 4) (0 4) (-7 2) (-4 4) (0 8)
-                           (3 8) (2 2) (-2 4) (-4 8) (-2 8) (0 4) (-7 4)
+                           (3 8) (2 4) (-2 4) (-4 8) (-2 8) (0 4) (-7 4)
                            (-9 8) (-5 8) (-7 2) ))
 ```
 So if it isn't obvious from looking at the code, the idea behind this program is to provide a simple sequencer so that you can write glorious sine wave music (you could change the sample if you wanted to but where's the fun in that?).  I could for example enter: `(playloop (list (0 4) (2 4) 2 (3 4)))` and it will play quarter notes: A4 B4 half-rest C4.  That's about all I've got for you, I'm going to try and record that audio now and then I'll upload some files.
