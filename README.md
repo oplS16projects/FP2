@@ -3,6 +3,8 @@ DUE Wednesday, March 23, 2016
 
 ## My Library: 2htdp/image
 My name: Laura Lucaciu
+
+
 I have played around with this library 
 The original code was displaying a triangle.
 
