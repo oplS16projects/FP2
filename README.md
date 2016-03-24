@@ -1,60 +1,52 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: Math Library
+My name: JT Shepple
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## What I did:
+I messed around with the Math Library and checked out how to use different functions with matrices. First I made two 3x3 matrixes and did basic math to them like added, subtracted and multiplied them. I also did a factor which could multiple or divide each element in the matrix. 
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+```racket
+#lang racket
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+(require math)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+;Makes a 3x3 matrix filled in with 5's
+(define filledMatrix (make-matrix 3 3 5))
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+;Makes a custom matrix of 3x3
+(define customMatrix (matrix [[1 2 3] [2 3 4] [3 4 5]]))
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+;Adds the two matixes together and prints to screen.
+;This would add 5 to each element and is printed to the screen.
+(matrix+ filledMatrix customMatrix)
 
-Code should be delivered in two ways:
+;Subtracts the custom matrix from the filled in matrix so each element starts at 5 and subtracts
+;the value in the cooresponding spot from the custom matrix and is printed to the screen.
+(matrix- filledMatrix customMatrix)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+;Scale multiplies each element by 2 and then by 3 so in my filledMatrix each element would be 30
+(define thirdMatrix (matrix-scale (matrix-scale filledMatrix 2) 3))
 
-Ask questions publicly in the email group.
+;From this thirdMatrix I subtracted the custom matrix so now each
+;element is 25 which is printed to the screen.
+(matrix- thirdMatrix filledMatrix)
+```
 
-## How to Prepare and Submit this assignment
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+I also messed around with a few other Math functions. One was the random number generator which could be useful in creating games having a random probability of an outcome in say picking a number out of a hat or rolling an equal sided die. This was pretty easy to use because all you had to do was callthe random integer function and a min and max (a range) and it would spit out a random number. I also tried the divisor function which would take in a number and print out all of the factors including 1 and itself. You can also give this a negitive number and the output would be the same. The last fuction is the map fibonacci which would print out the next x amount of fibonacci numbers. 
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+```racket
+;Pick a random integer from 1 to 50
+(random-integer 1 50)
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+;Prints out all factors of a given number.
+(divisors 75)
+
+;Prints out the next x amount of fibonacci numbers.
+(map fibonacci (range 7))
+```
+
+
+
+![Image 1](https://github.com/JohnShep/FP2/blob/master/RacketOutput.png?raw=true)
