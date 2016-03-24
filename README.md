@@ -1,7 +1,5 @@
 ## My Library: rsound
 My name: Connor Emma
-Write what you did!
-Remember that this report must include:
 
 In this project exploration, I chose to use an API meant for manipulating and playing sounds. I only got so far as actually playing the sounds, but it was a learning experience...
 
