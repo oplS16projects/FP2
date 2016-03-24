@@ -11,7 +11,7 @@
 ;;              Due to discrepncies between common 
 ;;              musical styles, this automon might not
 ;;              accept some harmonic progressions that 
-;;              are valid in some styles and invalid in
+;;              are valid in certain styles and invalid in
 ;;              others.
 ;;
 ;;        Note: Roman Numerals represeprent
