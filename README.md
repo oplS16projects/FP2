@@ -1,60 +1,54 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: (2htdp/image) and (planet dsheap/color-utils)
+The second library a graphics utility I found that allows manipulation of colors within an image.  The series of tutorials for how I found these tools and the explanation on how to use them is located at: http://www.cdf.toronto.edu/~heap/Racket/encryption.html
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+My name: Brendan Bousquet
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+I stumbled upon some tutorials for encrypting an image in Racket similar to the project that I did in Fred's Computing 4 section last Spring.  Since I had a good time replicating my old Sierpinski projects in Racket, I thought doing this one would be interesting as well.  In C++ we used SFML, for Racket I found this set of tools, made by an online lecturer Danny Heap, that is used in conjunction with the standard image library in Racket to be able to manipulate the color values of images.  I then followed the tutorials that Mr. Heap provided and found the process to be very intriguing.  
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+The library allows the for the user to access a list of all the colors within an image, and in addition access to the red, blue, and green values of all the colors within an image.  This is similar to all graphics libararies and is cleverly implemented so that a color can be specified and the rest of the values can be left as the image previously was.  That is how the red, blue, and green within the image are encrypted individually.  
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+The powerful functions in this implementation are `mult-mod` and `obscure-intensity`.  These are what are used to actually create the encryption by creating a seemingly random permutation of the existing colors, and then reversing that permutation so the original image is produced at the end.  
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+```Racket
+; mult-mod : Number Number Number -> Number
+; Remainder of xy divided by z
+(define (mult-mod x y z)
+  (remainder (* x y) z))
+  
+; obscure-intensity: Number Number -> Number
+; One less than the remainder of [n+1]
+; times c divided by 257  
+(define (obscure-intensity n c)
+  (sub1 (mult-mod (add1 n) c 257))) 
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+These are used to encrypt the values 1 to 256 by multiplying them by some number with no factors in common with 257.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+In this example 31 is used because it has no factors in common with 257.
+```Racket
+(define scrambled-red
+  (for/image ([old beach])
+    (red+color (obscure-intensity (color-red old) 31) old)))
+```
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+To unscramble the list of colors, the position that 0 is placed in (in this case position 199 within the list) is used in the same `obscure-intensity` procedure.
 
-Code should be delivered in two ways:
+```Racket
+(define unscrambled-red
+  (for/image ([old unscrambled-blue])
+    (red+color (obscure-intensity (color-red old) 199) old)))
+```
+If all the `scramble` procedures for all 3 colors are called and then the respective `unscramble` procedures for all 3 colors are also called, the image will go from a normal state, all the way through 3 levels of encryption, 3 levels of decryption, until finally ending in its original state.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+When the following is entered into the REPL in DrRacket:
+```Racket
+(beside beach
+          scrambled-red
+          scrambled-blue
+          scrambled-green
+          unscrambled-blue
+          unscrambled-red
+          unscrambled-green)
+```
+The results are concatenated into a nice sequential image showing the process of encrytion and decryption.
+![encryptcycle.png](https://github.com/BrendanBousquet/FP2/blob/master/encryptcycle.png)
