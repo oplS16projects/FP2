@@ -1,60 +1,26 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
-
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
-
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
-
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
-
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
+## My Library: rsound
+My name: Connor Emma
 Write what you did!
 Remember that this report must include:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+In this project exploration, I chose to use an API meant for manipulating and playing sounds. I only got so far as actually playing the sounds, but it was a learning experience...
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+Unlike the last exploration I couldn't just get away with typing `(require rsound)` and having the library ready to go. I actually had to take an extra two minutes or so to install some dependencies, and that was when I learned life is hard.
 
-Code should be delivered in two ways:
+Out of the three useful commands I learned, here are my top three favorites in no order:
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+`(play)` **Plays a sound.** ![alt text](http://test.wowaustralia.com.au/wp-content/uploads/2015/05/WOW-Logo-no-text-e1430265147670.jpg)
+It accepts *rsound* as an argument...which according to the documentation is a `struct` which contains the data itself, the start and end time of the rsound, and the 'frame rate'.
 
-Ask questions publicly in the email group.
+`(rs-read)` **This is for taking in a sound file.** Accepts a *path-string* as its argument which is just a normal path with any backslashes escaped. It returns an rsound object which is can then be passed to the `(play)` function. **This function can only interpret .wav files.** 
 
-## How to Prepare and Submit this assignment
+`(diagnose-sound-playing)` Is extremely useful when things go wrong right off that bat and the documentation's example function `(play ding)` does not work. The output of this command can be passed to Google which can actually help you fix the problem. 
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+#Here is another interpretation of a diagram
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+###I hope you enjoy reading it as much as I enjoyed making it!
+
+![alt text][diagram]
+
+[diagram]: https://i.imgur.com/L5otdAT.png
