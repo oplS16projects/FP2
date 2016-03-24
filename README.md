@@ -1,60 +1,48 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## My Library: (require plot)
+My name: Aliyu Zakari
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+The libary i used and the following procedures to that library are as follows.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+```
+(require plot)  ;;; Library I used
+(plot)          ;;; Procedure i played with
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+```
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+And listed below are the procedures that I created
+```
+(make-square-graph x) ;;; It makes a square graph that accepts an input that 
+                      ;;; accepts an argument which is the lower bound and 
+                      ;;; upper bound of the graph [x, x]
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+(make-linear-graph y) ;;; It makes a linear graph
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+(make-multi-graph a . b) ;;; Is a produre that accepts at least one arugments
+                         ;;; Those arguments are function objects that you want
+                         ;;; the procedure to plot. 
 
-Code should be delivered in two ways:
+;; When using this procedure, I advice to pass your fuctions to be plotted
+;; As a list. And Example of using such prodecure is as follows.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+(define a (function sqr (- 2) 2 )) ;; Is the first function 
+(define b (inverse sqr (- 2) 2 ))  ;; Is the second function
 
-Ask questions publicly in the email group.
+(make-multi-graph (list a b))      ;; Is how you use the procedure.
 
-## How to Prepare and Submit this assignment
+```
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+I personally wanted to make a better procedure 
+that would check if what's is given is a list
+or a single functions and would handle it from there.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+<br>
+<img height="1000" src="https://github.com/ABZaxxon/FP2/blob/master/FP2_Souce_Code.png"/>
+<br>
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+<br>
+<img height="1000" src="https://github.com/ABZaxxon/FP2/blob/master/FP2_Output_Picture.png"/>
+<br>
+
+I hope to still explore and master more of these libraries. 
