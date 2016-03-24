@@ -1,60 +1,86 @@
 # Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: SGL or OpenGL
+My name:Behailu Tekletsadik
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+So I have some pretty good experience with OpenGL in C with respect to the SDL library and Java with respect to LWJGL library.
+I remembered that I really liked the pain of OpenGL so I figured why not try it out in Racket and see what I can do with it.
+Might be a good idea to figure it out if I decide to do complex resource intensive tasks for whatever I decide to do for my prjoect.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+It ended up being not as esoteric to manage as I expected. When it comes to OpenGL there are a ton of functions and procedures to build everything up. The documentation for SGL had an excellent start for figuring out OpenGL.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+I did it stepwise:
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+```
+(define win (new frame% (label "OPEN GL") (min-width 500) (min-height 500)))
+```
+So this initializes a window frame of a set width and height. 
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+The next part of the code is the canvas. The canvas sets the functions to be called in GL. From here, it updates and renders based on what you give it which can be anything.
+```
+(define my-canvas%                            ; I have no idea what these three lines 
+  (class* canvas% ()                          ; are doing from a racket perspective.
+    (inherit with-gl-context swap-gl-buffers) ; Good thing the template is pretty helpful.
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+   (define/override (on-paint) ;general body of openGL contexts has inner function calls for drawing.
+      (with-gl-context
+        (lambda ()
+          (update)
+          (swap-gl-buffers)
+        )
+      )
+    )
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+    (define/override (on-size width height) ;nice for resizing
+      (with-gl-context
+        (lambda ()
+          (resize width height)
+        )
+      )
+    )
 
-Code should be delivered in two ways:
+    (super-instantiate () (style '(gl))) ;another racket mystery. 
+  )
+)
+```
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+And here's just the update method. It's fairly straightforward once you get more experience with it. Got to think of everything that needs to be refreshed or deallocated from memory otherwise you get artifacts and/or growing resource usage.
+```
+(define (update)
+  (glClearColor 0.0 0.0 0.0 0.0) ;clears scene for every refresh
+  (glClear GL_COLOR_BUFFER_BIT) ;
+  (glColor3d 1.0 1.0 1.0) ;sets a back color. OpenGL draws bottom up. First thing drawn is in the back
+                          ;unless you do some glblending wizardry
+  (glMatrixMode GL_PROJECTION)
+  (glLoadIdentity)
+  (glOrtho 0.0 1.0 0.0 1.0 -1.0 1.0) ;orthographic projection. Simply just 2D rendering focus
+  (glMatrixMode GL_MODELVIEW)
+  (glLoadIdentity)
+  (glBegin GL_QUADS) ;drawing a rectangle. 
+  (glVertex3d 0.25 0.25 0.0);notice the values? 
+  (glVertex3d 0.75 0.25 0.0);they're in context to the window size
+  (glVertex3d 0.75 0.75 0.0);problem with opengl is that it has no idea of a 'camera' or viewing distance
+  (glVertex3d 0.25 0.75 0.0);unless you specify it. If you change window size, the rectangle
+  (glEnd))                  ;will stay the same size relative to the window its in.
+                            ;OpenGL wrappers all account for this. I'm not building one so I'll
+                            ;leave it as is.
+```
 
-Ask questions publicly in the email group.
+The window with the rectangle being drawn.
+![Image](https://raw.githubusercontent.com/OhBehive/FP2/master/SimpleBox.png)
 
-## How to Prepare and Submit this assignment
+Resize function. Basically allows fullscreening. It's a native ability of GL enabled windows.
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+```
+(define (resize w h)
+  (glViewport 0 0 w h)
+  #t
+  )
+```
+Resize in action.
+![Image](https://raw.githubusercontent.com/OhBehive/FP2/master/FullscreenBox.png)
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+
+Thanks for reading,
+Hope you enjoyed!
