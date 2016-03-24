@@ -1,46 +1,28 @@
 ## My Library: Leftist Trees
 My name: Sridhar Rangan
 
-For my second exploration I decided to play around with the leftist trees library.
-
+For my second exploration I decided to play around with the leftist trees library.  Leftist trees are immutable priority queues.  I first played around with the idea of having a empty tree of strings and a tree with strings.  Below is the code defining an empty tree of strings and a tree of strings.
 
 ```racket
 #lang racket
 
-other code
+(define empty-tree-of-strings (leftist-tree string<=?))
+(define tree-of-strings (leftist-tree string<=? '("once" "upon" "a" "time")))
 
 ```
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+Once I defined them, in the REPL I ran empty-tree-of-strings which returned #<leftist-tree [empty]>.  This tells me that the empty-tree-of-strings is actually empty.  Also I ran tree-of-strings in the REPL which returned #<leftist-tree [count=4; min="a"]>.  This tells me the number of elements in the tree as well as the min value of just "a".
 
-Code should be delivered in two ways:
+In addition to determining emptiness, I also played around with the idea of adding two leftist trees together via the leftist-tree-add-all procedure.  To go a step further, I decided to return the values (strings).  The code below demonstrates as such. Both x and y are combined via the leftist-tree-add-all procedure and then a for loop helps to display all the elements in this case a couple of moods such as happy, angry, sad and estatic.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+```racket
+#lang racket
 
-Ask questions publicly in the email group.
+(define x (leftist-tree string<=?))
+(define y '("happy" "angry" "sad" "estatic"))
+(define z (leftist-tree-add-all x y))
+(for ([y (in-leftist-tree z)])
+  (displayln y))
 
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+```
+After playing with a couple of the features of leftist trees, it seems as though the main advantage of them comes from the ability to merge quickly together.  This could come in useful for the main finance project as it would be helpful to merge sets of financial data as well as use the graph library I explored in my first exploration.
