@@ -22,3 +22,5 @@ It accepts *rsound* as an argument...which according to the documentation is a `
 ![alt text][diagram]
 
 [diagram]: https://i.imgur.com/L5otdAT.png
+
+**EDIT:** The URL of the library (usually a github repository) MUST be included before you actually click *install* in the racket IDE. We apologize for the inconvenience. 
