@@ -52,7 +52,7 @@ Here are three simple queries that just print out each table in the databse.
     (execute-query
      (query-relation 'Subscribers))))
 ```
-OUTPUT: 
+OUTPUT:   
 ![](https://raw.githubusercontent.com/adam-melle/FP2/master/q1.JPG)
 
 ```racket
@@ -61,7 +61,7 @@ OUTPUT:
     (execute-query
      (query-relation 'Subscriptions))))
 ```
-OUTPUT:
+OUTPUT:  
 ![](https://raw.githubusercontent.com/adam-melle/FP2/master/q2.JPG)
 
 ```racket
