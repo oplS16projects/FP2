@@ -53,7 +53,7 @@ Here are three simple queries that just print out each table in the databse.
      (query-relation 'Subscribers))))
 ```
 OUTPUT:   
-![](https://raw.githubusercontent.com/adam-melle/FP2/master/q1.JPG)
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query1.JPG)
 
 ```racket
 (with-database SubscriptionDB
@@ -62,7 +62,7 @@ OUTPUT:
      (query-relation 'Subscriptions))))
 ```
 OUTPUT:  
-![](https://raw.githubusercontent.com/adam-melle/FP2/master/q2.JPG)
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query2.JPG)
 
 ```racket
 (with-database SubscriptionDB
@@ -72,7 +72,7 @@ OUTPUT:
 ```
 
 OUTPUT:  
-![](https://raw.githubusercontent.com/adam-melle/FP2/master/q3.JPG)
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query3.JPG)
      
 And lastly, a query that does something useful. This query will natural join the three tables together into a table that has
 all the subscriber information that you'd need to know. It then projects the fields '(Sub-ID FirstName LastName Address Type Length Price).
@@ -91,6 +91,6 @@ all the subscriber information that you'd need to know. It then projects the fie
 ```
 
 OUTPUT:
-![](https://raw.githubusercontent.com/adam-melle/FP2/master/q4.JPG)
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query4.JPG)
 
 As you can see, some subscribers have multiple subscriptions with different types. It is much easier to see this now instead of trying to look up the ID of each person in the subscriptions table.
