@@ -1,60 +1,96 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: (fra) Functional Relational Algebra
+My name: Adam Melle
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+I used the Functional Relational Algebra library to create a database and then demonstrate some queries on the database. I created a simple database for subscriptions. The database has 3 tables, Subscribers, Subscriptions, and Prices. The Subscribers
+table contains information about the subscribers like, their name, address, and their ID number. The Subscriptions table contains a subscribers ID number, their subscription type, and how long they are subscribed for. The Prices table contains the subscription type and the price of that type.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+This is the code defining a database, named SubscriptionDB, and the three tables. I also added some test entries into each table so I could later demonstrate the queries.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+```racket
+(define SubscriptionDB
+  (Database
+  [Subscribers
+   [Sub-ID FirstName LastName Address]
+   (112 "Matt" "Jones" "82 Elm Street")
+   (128 "Taylor" "Wilson" "45 Strong Avenue")
+   (126 "Jeff" "Miller" "22 Holmes Road")
+   (102 "Mark" "Hawkins" "78 Bull Road")
+   (117 "Wes" "Hauch" "108 Sampson Avenue")]
+  [Subscriptions
+   [Sub-ID Type Length]
+   (112 "Platinum" "1 year")
+   (128 "Gold" "2 year")
+   (128 "Platinum" "3 year")
+   (126 "Silver" ".5 year")
+   (102 "Silver" "2 year")
+   (102 "Gold" "2 year")
+   (117 "Platinum" "1 year")
+   (117 "Gold" "1 year")
+   (117 "Silver" "1 year")]
+  [Prices
+   [Type Price]
+   ("Platinum" "$60")
+   ("Gold" "$35")
+   ("Silver" "$15")]))
+```   
+Next is a procedure that is used to print out the queries. It also formats them a little nicer so they are easier to read.
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+```racket
+   (define (print-relation r)
+  (for ([c (in-list (relation-schema r))])
+    (printf "~a\t" c))
+  (printf "~n")
+  (for ([t (in-set (relation-tuples r))])
+    (for ([i (in-range 0 (tuple-length t))])
+      (printf "~a\t" (tuple-ref t i)))
+    (printf "~n"))(printf "~n"))
+```
+Here are three simple queries that just print out each table in the databse.
+```racket
+ (with-database SubscriptionDB
+   (print-relation
+    (execute-query
+     (query-relation 'Subscribers))))
+```
+OUTPUT:   
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query1.JPG)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+```racket
+(with-database SubscriptionDB
+   (print-relation
+    (execute-query
+     (query-relation 'Subscriptions))))
+```
+OUTPUT:  
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query2.JPG)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+```racket
+(with-database SubscriptionDB
+   (print-relation
+    (execute-query
+     (query-relation 'Prices))))
+```
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+OUTPUT:  
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query3.JPG)
+     
+And lastly, a query that does something useful. This query will natural join the three tables together into a table that has
+all the subscriber information that you'd need to know. It then projects the fields '(Sub-ID FirstName LastName Address Type Length Price).
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+```racket
+(with-database SubscriptionDB
+   (print-relation
+    (execute-query
+      (query-projection
+       '(Sub-ID FirstName LastName Address Type Length Price)
+       (query-natural-join
+        (query-relation 'Subscribers)
+        (query-natural-join
+         (query-relation 'Subscriptions)
+         (query-relation 'Prices)))))))
+```
 
-Code should be delivered in two ways:
+OUTPUT:
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/query4.JPG)
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+As you can see, some subscribers have multiple subscriptions with different types. It is much easier to see this now instead of trying to look up the ID of each person in the subscriptions table.
