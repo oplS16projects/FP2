@@ -1,60 +1,19 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: simple-qr
+My name: Jacob Suarez
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+For this exploration I looked at simple-qr, a library that allows you to generate QR codes from any string you input. As the name implies, simple-qr is very simple to use. All you need to input is the string you want turned into a QR code, the filename of the image output, and the size of the QR code. I made a simple function just so I wouldn't need to type #:module_width every single time I wanted to make a QR code of a size besides the default size of 5, then I made a bunch of test QR codes. The input I used for these examples can be seen in the .rkt file included with this submission.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+First, a simple QR code of the word "test"
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+![test](https://github.com/Onamar/FP2/blob/master/test.png)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+Next I tested using a really long string, so I used part of the Wikipedia entry for Ice-9, from Kurt Vonnegut's novel, _Cat's Cradle_
+![Ice-nine is a material appearing in Kurt Vonnegut's novel Cat's Cradle. Ice-nine is supposedly a catalyst of water (invented by Dr. Felix Hoenikker[1]); instead of melting at 0 °C (32 °F), the result melts at 45.8 °C (114.4 °F). When ice-nine comes into contact with liquid water below 45.8 °C (thus effectively becoming supercooled), it acts as a seed crystal and causes the solidification of the entire body of water, which quickly crystallizes as more ice-nine. As people are mostly water, ice-nine kills nearly instantly when ingested or brought into contact with soft tissues exposed to the bloodstream, such as the eyes or tongue. In the story, it is developed by the Manhattan Project in order for the Marines to no longer need to deal with mud, but abandoned when it becomes clear that any quantity of it would have the power to destroy all life on earth. A global catastrophe involving freezing the world's oceans with ice-nine is used as a plot device in Vonnegut's novel.](https://github.com/Onamar/FP2/blob/master/test2.png)
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+Finally, I made a QR code of the address of the page for PF2 on my GitHub account, in three different sizes
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+![https://github.com/Onamar/FP2](https://github.com/Onamar/FP2/blob/master/FP2-small.png)
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+![https://github.com/Onamar/FP2](https://github.com/Onamar/FP2/blob/master/FP2.png)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![https://github.com/Onamar/FP2](https://github.com/Onamar/FP2/blob/master/FP2-large.png)
