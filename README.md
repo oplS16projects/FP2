@@ -53,12 +53,7 @@ Here are three simple queries that just print out each table in the databse.
      (query-relation 'Subscribers))))
 ```
 OUTPUT: 
-Sub-ID	FirstName	LastName	Address	
-112	Matt	Jones	82 Elm Street	
-128	Taylor	Wilson	45 Strong Avenue	
-126	Jeff	Miller	22 Holmes Road	
-102	Mark	Hawkins	78 Bull Road	
-117	Wes	Hauch	108 Sampson Avenue
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/q1.JPG)
 
 ```racket
 (with-database SubscriptionDB
@@ -67,16 +62,7 @@ Sub-ID	FirstName	LastName	Address
      (query-relation 'Subscriptions))))
 ```
 OUTPUT:
-Sub-ID	Type	Length	
-112	Platinum	1 year	
-128	Gold	2 year	
-128	Platinum	3 year	
-126	Silver	.5 year	
-102	Silver	2 year	
-102	Gold	2 year	
-117	Platinum	1 year	
-117	Gold	1 year	
-117	Silver	1 year	
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/q2.JPG)
 
 ```racket
 (with-database SubscriptionDB
@@ -86,10 +72,7 @@ Sub-ID	Type	Length
 ```
 
 OUTPUT:  
-Type	Price	
-Platinum	$60	
-Gold	$35	
-Silver	$15
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/q3.JPG)
      
 And lastly, a query that does something useful. This query will natural join the three tables together into a table that has
 all the subscriber information that you'd need to know. It then projects the fields '(Sub-ID FirstName LastName Address Type Length Price).
@@ -108,15 +91,6 @@ all the subscriber information that you'd need to know. It then projects the fie
 ```
 
 OUTPUT:
-Sub-ID	FirstName	LastName	Address	Type	Length	Price	
-112	Matt	Jones	82 Elm Street	Platinum	1 year	$60	
-128	Taylor	Wilson	45 Strong Avenue	Gold	2 year	$35	
-128	Taylor	Wilson	45 Strong Avenue	Platinum	3 year	$60	
-117	Wes	Hauch	108 Sampson Avenue	Silver	1 year	$15	
-117	Wes	Hauch	108 Sampson Avenue	Gold	1 year	$35	
-126	Jeff	Miller	22 Holmes Road	Silver	.5 year	$15	
-117	Wes	Hauch	108 Sampson Avenue	Platinum	1 year	$60	
-102	Mark	Hawkins	78 Bull Road	Silver	2 year	$15	
-102	Mark	Hawkins	78 Bull Road	Gold	2 year	$35	
+![](https://raw.githubusercontent.com/adam-melle/FP2/master/q4.JPG)
 
 As you can see, some subscribers have multiple subscriptions with different types. It is much easier to see this now instead of trying to look up the ID of each person in the subscriptions table.
