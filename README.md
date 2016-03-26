@@ -1,60 +1,37 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: Images
+My name: Sean Berube
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+##Narrative
+Since I'm very much drawn to visual based creations, I decided to use images for my second library. There are two types of images that
+can be created in this library - icons and logos. From my experience icons seemed to be more versatile and in depth in terms of what pictures you can create and what you can do with them. Compared to the turtles library, images appears to be simpler in terms of what you can accomplish as its essentially just choosing a particular icon/logo, and then tweaking its appearance to your liking. That said I found the running man animations to be a really neat feature of the library. You can also using floating-point bitmaps to make flomaps, which resemble venn-diagrams in appearance.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+##Highlights
+The code below shows how I made a foot-icon, and a planet-logo.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+* (foot-icon #:color "yellow" #:height 124
+             #:material glass-icon-material)
+             
+* (planet-logo #:height 60)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+Once you define the type of logo, you have other options to edit your image such as altering its color, size, and material which changes the aesthetic appearance of the image itself (i.e. glass might make it more shiny).
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+The one thing I particularly liked about the icon library was that you could make animations, such as a man running.
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+* (for/list ([t  (in-range 0 1 1/8)])
+    * (running-stickman-icon t #:body-color "pink" #:head-color "red" #:arm-color "purple" #:height 40))
+    
+Essentially you make a list of stick figures, the range specifies that I want to depict one complete running motion through the use 
+of 8 images. 
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+The code below shows an example of how to create an ellipses in a flomap.
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+       (send fm-dc set-brush "orange" 'solid)
+       (send fm-dc draw-ellipse 84 44 192 192))
 
-Code should be delivered in two ways:
+Like an icon or logo, you can affect the color and size of the ellipses, but what's unqiue about this image is that you can use the first two paramters of draw-ellipse to alter the location of where the picture will be placed.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+##Diagram/Output
+The diagram below shows the resulting  images from my code. The first 4 are icons (the 4th being the animation) and the planet is a logo. The mess of circles cluttered together would be the flomap I created.
 
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+![alt tag] (https://github.com/sberube484/FP2/blob/master/explore2photo.PNG)
+![alt tag] (https://github.com/sberube484/FP2/blob/master/explore2photo2.PNG)
