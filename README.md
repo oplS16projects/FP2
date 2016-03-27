@@ -19,9 +19,14 @@ You can still use these in your project, but you must explore different librarie
 
 ##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
 
-## My Library: (library name here)
-My name:
+## My Library: pprint
+My name: Kevin Dibble
 Write what you did!
+
+I chose the PPrint: A Universal Pretty-Printer because it looked interesting and more involved than my FP1 library. Additionally, I remember working on some pretty printing work during my Computing IV course.
+I started working through the documentation page (http://docs.racket-lang.org/pprint/index.html) and put together several of the examples with my own additions. This library is quite large and I have only scratched the surface.
+
+Basic pretty print functionality consists of the doc structure which is the backbone of the system. Basic prodecures for creating docs include text, char, and more. Combining these docs is where the power of this library comes in. Combination procedures include the append set, the concat set, nest, fill, markup, and more. Defined docs like line and break are also built in for ease of use.
 Remember that this report must include:
 
 * a narrative of what you did
