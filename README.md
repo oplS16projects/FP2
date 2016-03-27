@@ -58,3 +58,9 @@ This is the first part of a larger project. The final project schedule is [here]
 [ref-commit]: http://gitref.org/basic/#commit
 [ref-push]: http://gitref.org/remotes/#push
 [pull-request]: https://help.github.com/articles/creating-a-pull-request
+
+#Pictures showing my work
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jumpyhoof/FP2/master/Output.png"/>
+  <img src="https://raw.githubusercontent.com/jumpyhoof/FP2/master/S3.png"/>
+</p>
