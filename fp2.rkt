@@ -37,3 +37,6 @@
 (make-directory* (build-path "tests"))
 (define p (build-path "tests" "TestDownload.txt"))
 (get/file b+p p #:exists 'replace)
+
+;Delete the file from amazon s3.
+(delete b+p)
