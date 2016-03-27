@@ -32,9 +32,9 @@ I created a racket program that tests put ang get file procedures for amazon s3.
 
 #Output from my code
 
-Please enter your Access Key: <Access Key>
-Please enter your Secret Access Key: <Secret Access Key>
-Please enter a bucket name: <Bucket Name>
+Please enter your Access Key:
+Please enter your Secret Access Key:
+Please enter a bucket name:
 Bucket contents:
 '()
 "HTTP/1.1 200 OK\r\nx-amz-id-2: yj7DusjRt5tJb0AFGPEfhlzAeeB/83gKoEG+DNztsJqxTca1NVOY0cHAwEOP4s8BZ7hiWkIoJ2k=\r\nx-amz-request-id: 0AF866FF059D3969\r\nDate: Sun, 27 Mar 2016 21:54:19 GMT\r\nETag: \"080aef839b95facf73ec599375e92d47\"\r\nContent-Length: 0\r\nServer: AmazonS3\r\n\r\n"
