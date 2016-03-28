@@ -68,4 +68,7 @@ It wouldn't let me screen shot my world, so i just found a picture of flappy bir
 
 ![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/FP2Image.jpg)
 
+#NOTE:
+
+If you are running this program you must close the previous window to get the next window to appear.
 
