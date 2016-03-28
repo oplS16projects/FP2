@@ -2,8 +2,6 @@
 
 ## My Library: graphics/turtle
 My name: Patrick Donegan
-Write what you did!
-Remember that this report must include:
 
 I worked with the graphics/turtle library to draw shapes.
 The following code drew a square and triangle which shared a side.
