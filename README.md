@@ -10,18 +10,19 @@ Basic pretty print functionality consists of the doc structure which is the back
 The first piece of demo code I expounded on was the "Getting Started" section that laid out how to use the absolute basics of the library.
 ![Alt text](/basicPP.png?raw=true "Normal")
 Here you see the indenting and appending style in use.
+
+Takes a list of docs and appends them all together with a break in-between each doc
 ```
 (vb-append x) → doc?
   x : doc?
 ```
-Takes a list of docs and appends them all together with a break in-between each doc
 
+Takes a doc and increases the docs indent from this point onward (important note, the current line does not get an indent).
 ```
 (nest n d) → doc?
   n : natural-number/c
   d : doc?
 ```
-Takes a doc and increases the docs indent from this point onward (important note, the current line does not get an indent).
 
 Putting them together into a multiple line segment:
 ```
@@ -46,10 +47,10 @@ Pretty print also allows for markups:
 
 One procedure I saaw that I thought was interesting was "fill" which adds spaces to the end of a doc up to the specified char limit.
 ![Alt text](/fill.png?raw=true "Normal")
+This line adds 5 spaces to the doc "empty" to make "empty     
 ```
 (fill 10 (text "empty"))
-```
-This line adds 5 spaces to the doc "empty" to make "empty     ".
+```".
 If the line is already the max size or larger, fill doesn't change anything:
 ```
 (fill 6 (text "linebreak"))
