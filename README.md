@@ -4,7 +4,7 @@
 My name: Michael Antrobus
 
 
-I met will my partner John Brown on Friday and we decided that we wanted to at least make our program an interactive program that would allow the user to communicate via mouse clicks/keyboard types. After googling around for a bit trying to find out how to make a program interactive most people used functions from the 2htdp/universe library so i decided to make it my second library to help out with the project. 2htdp/universe is a big library and pretty difficult to wrap my head around so i was only focusing on making a program interactive and skipped over worlds interacting with a server.
+I met will my partner John Brown on Friday and we decided that we wanted to at least make our program an interactive program that would allow the user to communicate via mouse clicks/keyboard types. After I googled around for a bit trying to find out how to make a program interactive most people used functions from the 2htdp/universe library so i decided to make it my second library to help out with the project. 2htdp/universe is a big library and pretty difficult to wrap my head around so i was only focusing on making a program interactive and skipped over worlds interacting with a server.
 
 #Code
 
