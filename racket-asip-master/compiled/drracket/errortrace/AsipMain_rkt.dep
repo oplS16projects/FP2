@@ -1,0 +1,1 @@
+("6.4" ("3166f27f9f323e520d48ef938dfc7ee7f9d7c03a" . "97f71194eb6969b4ce52a45c36cb819c7e78133a") #"C:\\Users\\Alex\\Desktop\\School\\OPL\\racket-asip-master\\AsipUtilities.rkt" (collects #"errortrace" #"errortrace-key.rkt") (collects #"file" #"sha1.rkt") (collects #"racket" #"main.rkt") (collects #"racket" #"runtime-config.rkt") (collects #"racket" #"system.rkt"))
