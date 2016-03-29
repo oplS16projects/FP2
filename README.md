@@ -7,7 +7,7 @@ Basically, I used one of the examples to figure out the syntax, and then wrote a
 
 The Arduino sketch uploaded is simply the pre-made ASIP sketch, which starts the serial communication. AFter that everything is in Racket. This interface is really cool, because it allows you to use Functional logic to control hardware, and also use harware to send signals to racket. For example:
 
-'
+```
 (define led1 11) ;; Defines which I/O pin to use
 (define led2 12)
 ...
@@ -15,7 +15,8 @@ The Arduino sketch uploaded is simply the pre-made ASIP sketch, which starts the
     (set-pin-mode led2 OUTPUT_MODE)
     ...
     (map (λ (x) (digital-write x LOW)) (list led1 led2))
-`
+```
 This uses Racket's higher order map function to turn off a series of LED's Later in the code, racket functions are used to control the LED's in other ways.
 
 Here's a picture of my circuit which I can't test!
+![Image of Circuit](/circuit.jpg)
