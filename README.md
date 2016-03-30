@@ -1,42 +1,71 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## My Library: graphics/turtle
+My name: Patrick Donegan
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+I worked with the graphics/turtle library to draw shapes.
+The following code drew a square and triangle which shared a side.
+Note that 1.414 is my approximation for root 2.
+```
+(define (square x)
+  (draw x)
+  (turn 90)
+  (draw x)
+  (turn 90)
+  (draw x)
+  (turn 90)
+  (draw x)
+  (turn 90)
+  (move x)
+  )
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+(define (triangle x)
+  (draw x)
+  (turn 135)
+  (draw (* 1.414 x))
+  (move x)
+  )
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+(square 100)
+(triangle 100)
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+```
+This produced the following output
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
 
-Code should be delivered in two ways:
+![Alt text](Screen Shot 2016-03-28 at 10.27.40 AM.png?raw=true "shape")
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
 
-Ask questions publicly in the email group.
+Another more interesting image that I created came about by mistake.
+When I made a programming error which led to an infinite loop I stopped it
+about 5 minutes in and this is the image that was created
+
+
+
+![Alt text](Screen Shot 2016-03-25 at 6.15.27 PM.png?raw=true "mistake")
+
+
+
+
+The code that created this interesting image was the following
+
+```
+;(define (square x)
+;  (draw x)
+;  (turn 90)
+;  (draw x)
+;  (turn 90)
+;  (draw x)
+;  (turn 90)
+;  (draw x)
+;  (turn 90)
+;  (move x)
+;  (square (- x 10))
+;  )
+;
+;(square 100)
+```
 
 ## How to Prepare and Submit this assignment
 
