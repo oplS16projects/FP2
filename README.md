@@ -1,60 +1,74 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## My Library: 2htdp/universe
+My name: Michael Antrobus
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+I met will my partner John Brown on Friday and we decided that we wanted to at least make our program an interactive program that would allow the user to communicate via mouse clicks/keyboard types. After I googled around for a bit trying to find out how to make a program interactive most people used functions from the 2htdp/universe library so i decided to make it my second library to help out with the project. 2htdp/universe is a big library and pretty difficult to wrap my head around so i was only focusing on making a program interactive and skipped over worlds interacting with a server.
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+#Code
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+I created three 'Worlds' (a world is what the user interacts with, it's basically just a new window that the program pops up) the first one is not interactive which is me just trying to get used to the supporting 2htdp/image library it's an animation where a UFO is just traveling in a downwards direction. 
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+This is where all the magic happens:
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+```racket
+(big-bang '(150 . 150)
+          (to-draw ball-image)
+          (on-key change)) 
 
-Code should be delivered in two ways:
+```
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+The big-bang function is the function that creates our world, this is just a simple world that acts on key strokes. The list of numbers (150 . 150) is the current worldstate, the world state is the function keeping track of what the world looks like. The worldstate currently is '(150 . 150) this will place our ball image at that location in our world. to-draw is a function that is called whenever our world needs to be redrawn, anytime our ball moves. on-key is a function that will process our arrow keys and the change function changes the world based on what key is pressed.
 
-Ask questions publicly in the email group.
+Change:
 
-## How to Prepare and Submit this assignment
+```racket
+(define (change w a-key) 
+  (cond 
+    [(key=? a-key "left")  (cons (sub1 (car w)) (cdr w))]
+    [(key=? a-key "right") (cons (add1 (car w)) (cdr w))];
+    [(key=? a-key "up")    (cons (car w) (sub1 (cdr w)))]
+    [(key=? a-key "down")  (cons (car w) (add1 (cdr w)))]
+    [else w])) 
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+```
+This is the change function, it takes w which is the world state and a-key which is the key to process, both of these parameters are passed to it by the on-key function whenever it's called. Whenever a key is hit, unlike in C/C++ where the action is considered a Hex number, in 2htdp/universe (and i assume scheme aswell?) it's labeled as a string which is what is being compared by Key=? and the key passed to the function. We either subtract or add 1 to either the car w or cdr w depending if we affect the x or y coordinate of the ball. I'm still a bit uneasy about why (car w) affects the x-coordinate and (cdr w) affects the y-coordinate.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+on-mouse:
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+```racket
+(define (change2 w x-mouse y-mouse a-key)
+  (cond 
+    [(mouse=? a-key "button-down")  (cons (sub1 (car w)) (cdr w))]
+    [(mouse=? a-key "drag")  (cons (add1 (car w)) (cdr w))]
+    [else w])) 
+                   
+
+(big-bang '(150 . 150)
+          (to-draw ball-image)
+          (on-mouse change2))
+```
+Basically does the same thing as above but with mouse clicks and can only go left and right. This change takes two additional parameters being the x/y coordinate of the mouse.
+
+#Output:
+
+The output is the big-bang function returning the state of the world after everything (the position of the red ball and UFO).
+
+```racket
+52
+'(106 . 76)
+'(230 . 150)
+> 
+```
+
+#Picture
+
+![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/FP2.1.PNG)
+![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/Fp2.2.PNG)
+![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/Fp2.3.PNG)
+
+#NOTE:
+
+If you are running this program you must close the previous window to get the next window to appear.
+
