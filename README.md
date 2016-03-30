@@ -1,60 +1,59 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
-
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
-
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
-
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
-
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
+## My Library: pprint
+My name: Kevin Dibble
 Write what you did!
-Remember that this report must include:
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+I chose the PPrint: A Universal Pretty-Printer because it looked interesting and more involved than my FP1 library. Additionally, I remember working on some pretty printing work during my Computing IV course.
+I started working through the documentation page (http://docs.racket-lang.org/pprint/index.html) and put together several of the examples with my own additions. This library is quite large and I have only scratched the surface.
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+Basic pretty print functionality consists of the doc structure which is the backbone of the system. Basic prodecures for creating docs include text, char, and more. Combining these docs is where the power of this library comes in. Combination procedures include the append set, the concat set, nest, fill, markup, and more. Defined docs like line and break are also built in for ease of use.
 
-Code should be delivered in two ways:
+The first piece of demo code I expounded on was the "Getting Started" section that laid out how to use the absolute basics of the library.
+![Alt text](/basicPP.png?raw=true "Normal")
+Here you see the indenting and appending style in use.
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+Takes a list of docs and appends them all together with a break in-between each doc
+```
+(vb-append x) → doc?
+  x : doc?
+```
 
-Ask questions publicly in the email group.
+Takes a doc and increases the docs indent from this point onward (important note, the current line does not get an indent).
+```
+(nest n d) → doc?
+  n : natural-number/c
+  d : doc?
+```
 
-## How to Prepare and Submit this assignment
+Putting them together into a multiple line segment:
+```
+(pretty-print
+   (vb-append
+    (nest 4 (vb-append (text "while (true) {")
+                      (text "f();")
+                      (nest 4 (vb-append (text "if (done())")
+                                        (text "exit();")))
+                      (nest 4 (vb-append (text "else {")
+                                        (text "printf(\"foo bar\");")))
+                      (text "}")
+                      ))
+    (text "}")
+    (char #\a)
+    break
+))
+```
 
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
+Pretty print also allows for markups:
+![Alt text](/markup.png?raw=true "Normal")
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
+One procedure I saaw that I thought was interesting was "fill" which adds spaces to the end of a doc up to the specified char limit.
+![Alt text](/fill.png?raw=true "Normal")
+This line adds 5 spaces to the doc "empty" to make "empty     
+```
+(fill 10 (text "empty"))
+```
+If the line is already the max size or larger, fill doesn't change anything:
+```
+(fill 6 (text "linebreak"))
+```
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+I barely touched the surface of this library and if I had the time and need I would probably enjoy learning the rest of the library and seeing how powerful it is. I probably won't need to use this library for my project. if I need to display some pretty information to the user I'll want to use some GUI stuff.
