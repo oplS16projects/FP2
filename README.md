@@ -55,3 +55,5 @@ If the line is already the max size or larger, fill doesn't change anything:
 ```
 (fill 6 (text "linebreak"))
 ```
+
+I barely touched the surface of this library and if I had the time and need I would probably enjoy learning the rest of the library and seeing how powerful it is. I probably won't need to use this library for my project. if I need to display some pretty information to the user I'll want to use some GUI stuff.
