@@ -34,3 +34,4 @@ My program gives the follwing output:
 
 Here is a small diagram illustrating how this polymorhpism will be useful in designing the overall chess simulation. Being able to abstract away the complexity of implementing individual chess pieces will be a huge boon to our organization, as we'll only need to query a given piece for its valid moves; the piece itself it will responsible to knowing what is and isn't a valid move.
 
+![poly-desc diagram](https://raw.githubusercontent.com/cfinegan/FP2/master/poly-desc.png)
