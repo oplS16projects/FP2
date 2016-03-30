@@ -1,60 +1,50 @@
 # Final Project Assignment 2: Exploration (FP2)
 DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+## My Library: Amazon Web Services
+My name: Brian Thomas
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+I created a racket program that tests put ang get file procedures for amazon s3. First, the program prompts the user for access IDs and a bucket name for which they have access. This will log into Amazon S3 and create a simple text file containing "Hello, World" in bucket/path/to/HelloWorld.txt. After creating/uploading the file, I then use a get command to download the file. 
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+#Highlights of code
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+```
+;Define path to a test directory in mybucket and contents (data) of test file
+(define test-pathname "path/to/HelloWorld.txt")
+(define b+p (string-append mybucket "/" test-pathname))
+(define data #"Hello, world.")
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+;If the bucket exists, create a hello world txt file.
+(if (member? mybucket (list-buckets))
+    (put/bytes b+p data "text/plain")
+    (display "Bucket does not exist."))
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+;List files in the bucket again to show the created file.
+(display "Bucket contents:\n")
+(ls (string-append mybucket "/"))
 
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
+;Download the file from amazon s3 to your computer.
+(make-directory* (build-path "tests"))
+(define p (build-path "tests" "TestDownload.txt"))
+(get/file b+p p #:exists 'replace)
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
+ ```
 
-Code should be delivered in two ways:
+#Output from my code
 
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
+Please enter your Access Key:
+Please enter your Secret Access Key:
+Please enter a bucket name:
+Bucket contents:
+'()
+"HTTP/1.1 200 OK\r\nx-amz-id-2: yj7DusjRt5tJb0AFGPEfhlzAeeB/83gKoEG+DNztsJqxTca1NVOY0cHAwEOP4s8BZ7hiWkIoJ2k=\r\nx-amz-request-id: 0AF866FF059D3969\r\nDate: Sun, 27 Mar 2016 21:54:19 GMT\r\nETag: \"080aef839b95facf73ec599375e92d47\"\r\nContent-Length: 0\r\nServer: AmazonS3\r\n\r\n"
+Bucket contents:
+'("path/to/HelloWorld.txt")
+> 
 
-Ask questions publicly in the email group.
 
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
+#Pictures showing my work
+<p align="center">
+  <img src="https://raw.githubusercontent.com/jumpyhoof/FP2/master/Output.png"/>
+  <img src="https://raw.githubusercontent.com/jumpyhoof/FP2/master/S3.png"/>
+</p>
