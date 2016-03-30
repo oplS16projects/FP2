@@ -66,7 +66,9 @@ The output is the big-bang function returning the state of the world after every
 
 It wouldn't let me screen shot my world, so i just found a picture of flappy bird cause that interactive.
 
-![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/FP2Image.jpg)
+![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/FP2.1.PNG)
+![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/Fp2.2.PNG)
+![alt text](https://raw.githubusercontent.com/Aurelas/FP2/master/Fp2.3.PNG)
 
 #NOTE:
 
