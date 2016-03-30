@@ -34,8 +34,8 @@ This produced the following output
 
 
 
-![output]
-(http://imgur.com/SMeksAI.png)
+![Alt text](Screen Shot 2016-03-28 at 10.27.40 AM.png?raw=true "shape")
+
 
 Another more interesting image that I created came about by mistake.
 When I made a programming error which led to an infinite loop I stopped it
@@ -43,8 +43,10 @@ about 5 minutes in and this is the image that was created
 
 
 
-![output]
-(http://i.imgur.com/7Vk0LuJ.png)
+![Alt text](Screen Shot 2016-03-25 at 6.15.27 PM.png?raw=true "mistake")
+
+
+
 
 The code that created this interesting image was the following
 
