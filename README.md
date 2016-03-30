@@ -50,7 +50,7 @@ One procedure I saaw that I thought was interesting was "fill" which adds spaces
 This line adds 5 spaces to the doc "empty" to make "empty     
 ```
 (fill 10 (text "empty"))
-```".
+```
 If the line is already the max size or larger, fill doesn't change anything:
 ```
 (fill 6 (text "linebreak"))
