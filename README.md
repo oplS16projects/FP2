@@ -1,60 +1,47 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+# Name: Tyler Bezuka
+##Library: RSound
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+For my second library exploration I was interested in sound. I chose to work with rsound, an extensive library capable of
+playing, recording, combining, reading, and modifying sound. 
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+The first function I created was a simple combine-or-read function controlled with an if statement: 
+```
+(define (combine-or-read determine path)
+  (if (even? determine) (play (rs-read path))
+      (play (rs-append ding (record-sound 100000)))))
+```
+Depending on whether the user enters an even or odd number the function does two different things. The two arguments passed
+to this function are determine and path. The first argument determine is an integer which determines what the function 
+will do, the second argument is a path used to read a sound. If an even number is entered the functon will read a sound given
+in the form of a string by the user and play back that sound. If an odd number is entered two sounds are combined and played 
+back. To combine these sounds
+```
+(rs-append sound1 sound2)
+```
+is used. This function takes two rsounds and appends sound2 to the end of sound1. In this case ding, a built in rsound is
+always combined with the a recorded second sound. The second sound is created through
+```
+(record-sound frames)
+```
+This function takes a natural number as input and records for the inputted amount of frames. In this case (rs-append always combines a ding sound with 5 seconds of recording. The output from this function is: 
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+![combine-or-read-output](https://github.com/tylerbezuka/FP2/blob/master/played-sound.png)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
+The next function I created was
+```
+(define (save-recording path)
+  (rs-write (record-sound 10000) path))
+```
+This function records a sound for 10000 frames and saves the recorded sound to whatever path the user specifies when calling the function. The output of this function will produce nothing, but I have attached the created file from calling this function. The path I used to save the sound was simply the Desktop. 
 
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
+The final function I created was: 
+```
+(define (make-song lst initial)
+  (define (make-song-helper lst sound)
+    (if (null? (car lst))
+               (play sound)
+               (make-song-helper (cdr lst) (rs-append ding (rs-read (car sound))))))
+  (make-song-helper lst initial))
+```
+This function takes a list and initial sound as input and combines them into a single sound using (rs-append). For example, ding can be passed as input with an initial sound of ding. make-song-helper will iterate through the list of songs appending each sound with a ding through rs-read and rs-append. This appended sound is passed to make-song-helper until the list has no more remaining items. Once the end of the list of songs is reached they are played through. 
 
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
-
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
