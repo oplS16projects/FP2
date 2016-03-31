@@ -1,28 +1,25 @@
 # Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+## My Library: (Rsound)
+My name: Lokesh Manchi
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
-
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
+I played around with different sounds that could be created using Rsound. For the adventure game that we are creating Rsound would make it more lively with the noises for example when the player hits something a noise will play. I programmed a couple of noises that can be used in the main program.
+```
+#lang racket
+ 
+ (define sound
+  (network ()
+       [E2 <= sine-wave 2]
+       [B2 <= sine-wave 100]
+ ```
+ This code creates a vibrating noice and the pitch can be changed by playing around with A and B
+ ```
+#lang racket
+ [looper <= (loop-ctr change-interval 1)]
+ 
+  ```
+   This is the second noise that is on a loop. The loop and the frequency can be changed based on the values on the pitch. This runs on a high to low frequency.
 
 * a narrative of what you did
 * highlights of code that you wrote, with explanation
