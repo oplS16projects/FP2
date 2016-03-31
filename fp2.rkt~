@@ -1,0 +1,5 @@
+#lang racket
+
+
+(require simple-qr)
+(qr-code "Hello World!" "hello.png")
