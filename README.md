@@ -27,5 +27,12 @@ This function takes a natural number as input and records for the inputted amoun
 
 ![combine-or-read-output](https://github.com/tylerbezuka/FP2/blob/master/played-sound.png)
 
+The next function I created was
+```
+(define (save-recording path)
+  (rs-write (record-sound 10000) path))
+```
+This function records a sound for 10000 frames and saves the recorded sound to whatever path the user specifies when calling the function. The output of this function will produce nothing, but I have attached the created file from calling this function. The path I used to save the sound was simply the Desktop. 
+
 
 
