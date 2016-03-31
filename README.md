@@ -36,6 +36,3 @@ So I downloaded the Pict3d package and started reading into the documentation.  
 ![screenshot](https://github.com/robdoesweb/FP2/blob/master/screenshotfp2.png)
 
 
-* at least one diagram or figure showing your work
-
-
