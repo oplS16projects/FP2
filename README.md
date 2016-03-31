@@ -49,3 +49,8 @@ Finally to create slide object or procedure all you have to do is:
  The slide procedure takes a title and a layout which can be either top or bottom, up to you. 
 
 Here are a few of the outputs: 
+
+![alt tag](https://github.com/naman1255/FP2/blob/master/my_output_1.png)
+![alt tag](https://github.com/naman1255/FP2/blob/master/my_output_2.png)
+![alt tag](https://github.com/naman1255/FP2/blob/master/my_output_3.png)
+ 
