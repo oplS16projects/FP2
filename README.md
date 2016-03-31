@@ -33,7 +33,7 @@ So I downloaded the Pict3d package and started reading into the documentation.  
 ```
 * Couldn't get the camera to move, got an error saying I had to use a non-zero position for the second argument to `point-at`
 * made the cube spin in a couple different directions before giving up and deciding on 2d
-[screenshot](https://github.com/robdoesweb/FP2/blob/master/screenshotfp2.png)
+![screenshot](https://github.com/robdoesweb/FP2/blob/master/screenshotfp2.png)
 
 
 * at least one diagram or figure showing your work
