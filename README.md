@@ -34,5 +34,14 @@ The next function I created was
 ```
 This function records a sound for 10000 frames and saves the recorded sound to whatever path the user specifies when calling the function. The output of this function will produce nothing, but I have attached the created file from calling this function. The path I used to save the sound was simply the Desktop. 
 
-
+The final function I created was: 
+```
+(define (make-song lst initial)
+  (define (make-song-helper lst sound)
+    (if (null? (car lst))
+               (play sound)
+               (make-song-helper (cdr lst) (rs-append ding (rs-read (car sound))))))
+  (make-song-helper lst initial))
+```
+This function takes a list and initial sound as input and combines them into a single sound using (rs-append). For example, ding can be passed as input with an initial sound of ding. make-song-helper will iterate through the list of songs appending each sound with a ding through rs-read and rs-append. This appended sound is passed to make-song-helper until the list has no more remaining items. Once the end of the list of songs is reached they are played through. 
 
