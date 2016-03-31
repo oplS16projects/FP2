@@ -23,6 +23,9 @@ always combined with the a recorded second sound. The second sound is created th
 ```
 (record-sound frames)
 ```
-This function takes a natural number as input and records for the inputted amount of frames. In this case (rs-append always combines a ding sound with 5 seconds of recording.
+This function takes a natural number as input and records for the inputted amount of frames. In this case (rs-append always combines a ding sound with 5 seconds of recording. The output from this function is: 
+
+![combine-or-read-output](https://github.com/tylerbezuka/FP2/blob/master/played-sound.png)
+
 
 
