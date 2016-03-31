@@ -2,8 +2,7 @@
 My name: Naman Jiandani
 
 # Write what you did!
-I use
-Remember that this report must include:
+I use the Slideshow Library
 
 * I did a slideshow in Racket using the Slideshow Library. 
 * Creates a full page interface which allows you to change the slide by pressing any key
