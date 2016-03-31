@@ -19,10 +19,10 @@ Now we can make our first qr code:
 (qr-code "Hello World!" "hello.png") 
 ```
 A simple hello world that produces the qr-code:
-![helloworld][https://github.com/nickfinocchiaro/FP2/blob/master/hello.png]
+![helloworld](https://github.com/nickfinocchiaro/FP2/blob/master/hello.png)
 
 With the Following Output:
-![helloworldscreen][https://github.com/nickfinocchiaro/FP2/blob/master/Screenshot_2016-03-30-20-14-09.png]
+![helloworldscreen](https://github.com/nickfinocchiaro/FP2/blob/master/Screenshot_2016-03-30-20-14-09.png)
 
 You can also adjust the width using:
 ```
@@ -39,13 +39,13 @@ change a width:
 Output the following codes:
 
 ESPN:
-![espn-qr][https://github.com/nickfinocchiaro/FP2/blob/master/espn.png]
+![espn-qr](https://github.com/nickfinocchiaro/FP2/blob/master/espn.png)
 
 Google:
-![google-qr][https://github.com/nickfinocchiaro/FP2/blob/master/google.png]
+![google-qr](https://github.com/nickfinocchiaro/FP2/blob/master/google.png)
 
 Our GitHub Repository:
-![github-qr][https://github.com/nickfinocchiaro/FP2/blob/master/github.png]
+![github-qr](https://github.com/nickfinocchiaro/FP2/blob/master/github.png)
 
 pretty simple. Great for very lightweight procedures. I could teach my mom how to do this one. it'd be really cool if you could a gui for
 this so a user could create the file that is placed in the desired directory by providing the link and taking an input for width. That
