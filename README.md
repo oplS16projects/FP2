@@ -1,42 +1,51 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
+## My Library: avl-tree
+Joel Cruz
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+I used the avl package to create an avl-tree full of random numbers i selected. I tried then to manipulate the tree to test out the different functions the package provides. I got to test out a few things that werent exclusive to the avl package, such as for/list, which travels down the list you provide. I gave for/list the avl tree i created in acsending order and manipulated the value shown.
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+```racket
+(define avl (make-avl <=))
+(avl-add! avl 33)
+(avl-add! avl 133)
+(avl-add! avl 73)
+(avl-add! avl 88)
+(avl-add! avl 11)
+(avl-add! avl 53)
+(avl-add! avl 100)
+(avl-add! avl 13)
+(avl-add! avl 22)
+(avl-add! avl 48)
+(avl-add! avl 264)
+(avl-add! avl 202)
+(avl-add! avl 133)
+(avl-add! avl 123)
+(avl-add! avl 173)
+(avl-add! avl 188)
+(avl-add! avl 111)
+(avl-add! avl 153)
+(avl-add! avl 300)
+(avl-add! avl 123)
+(avl-add! avl 221)
+(avl-add! avl 481)
+(avl-add! avl 24)
+(avl-add! avl 22)
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
+(for/list ((value (in-avl avl)))
+    (cond [(< value 50) (* value value)]
+          [(< value 100) (* value 8)]
+          [(> value 300) (* value 2)]
+          [else (* value 30)]))
+```
+and it produced the following output:
+![alt text](http://i.imgur.com/YSLj9ll.png)
 
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
-Write what you did!
-Remember that this report must include:
 
 * a narrative of what you did
 * highlights of code that you wrote, with explanation
 * output from your code demonstrating what it produced
 * at least one diagram or figure showing your work
+*
 
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
 
 ## How to Prepare and Submit this assignment
 
@@ -47,14 +56,4 @@ Ask questions publicly in the email group.
 1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
 1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
 
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
 
-<!-- Links -->
-[schedule]: https://github.com/oplS16projects/FP-Schedule
-[markdown]: https://help.github.com/articles/markdown-basics/
-[forking]: https://guides.github.com/activities/forking/
-[ref-clone]: http://gitref.org/creating/#clone
-[ref-commit]: http://gitref.org/basic/#commit
-[ref-push]: http://gitref.org/remotes/#push
-[pull-request]: https://help.github.com/articles/creating-a-pull-request
