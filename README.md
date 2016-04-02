@@ -13,6 +13,7 @@ I picked 2htdp/image because it is closely related to my project. My original ch
                       80 0
                       (triangle 40 "solid" "red"))
        (rectangle 120 40 "solid" "dimgray"))
+       
 The hardest part about anything for me in scheme is setting up the procedures just right. By using above your first argument will be on top what ever the second argument is. What I find interesting is that you can put multiple shapes into the first argument and comes out the way you wanted to.
 
 <img src="output.jpg">
