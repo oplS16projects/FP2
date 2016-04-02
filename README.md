@@ -9,6 +9,7 @@ I picked 2htdp/image because it is closely related to my project. My original ch
 
 ; Above the rectangle
 ; Triangles beside each other
+
 (above (overlay/offset (triangle 40 "solid" "red")
                       80 0
                       (triangle 40 "solid" "red"))
