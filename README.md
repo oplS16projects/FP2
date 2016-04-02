@@ -16,6 +16,7 @@ I picked 2htdp/image because it is closely related to my project. My original ch
 The hardest part about anything for me in scheme is setting up the procedures just right. By using above your first argument will be on top what ever the second argument is. What I find interesting is that you can put multiple shapes into the first argument and comes out the way you wanted to.
 
 <img src="output.jpg">
+
 From the pictures above you can see how I progressed and added new shapes. I first started off simple by drawing a rectangle, then a triangle and then my progression is as you se above. 
 
 
