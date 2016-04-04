@@ -23,11 +23,11 @@ These images can be interacted with in a few different ways. There are buttons a
 
 Results of running the above with default lighting and indicators on:
 
-[Default Lighting Cubes]
+![Default Lighting Cubes](Default Lighting Cubes.png)
 
 Results of running the above with default lighting off:
 
-[Scene Lighting Cubes]
+![Scene Lighting Cubes](Scene Lighting Cubes.png)
 
 Pict3d can also generate static bitmap images:
 ```
@@ -38,7 +38,8 @@ Pict3d can also generate static bitmap images:
     (combine (cube origin 1/2)
              (light (pos 0 1 1))))))
 ```
-[Unlit Cube] [Lit Cube]
+![Unlit Cube](Unlit Cube.png) ![Lit Cube](Lit Cube.png)
+
 Notice that these images are generated with none of the default indicators or lighting from before.
 
 ## Spheres
@@ -59,7 +60,7 @@ I simply follow along with the examples from the documentation, using `(adaptive
 
 Results (default lighting except for the second one):
 
-[Spheres]
+![Spheres](Spheres.png)
 
 ## Cylinders, Cones, and Pipes
 Pict3d supports three different kinds of objects with circle-shaped bases, cylinders, cones, and hollowed-out cylinders (called pipes).
@@ -87,9 +88,9 @@ The pipe object has a few extra properties: the shape of the top and bottom of t
             (with-color (rgba "red" 0.5)
                         (rectangle origin (dir 1/4 1/2 3/4))))))
 ```
-This generates a cylinder, a cone, and a pipe, each with a base shaped like 3/4 of an ellipse:
+This generates a cylinder, a cone, and a pipe, each with a base shaped like 3/4 of an ellipse. It also generates a semi-transparent rectangle to indicate the rectangle used to define the shape:
 
-[Circle-Based Shapes]
+![Circle-Based Shapes](Circle-Based Shapes.png)
 
 ## Lighting and Emissive Objects
 
@@ -112,7 +113,7 @@ To demonstrate, here's an object that emits light:
 The object has also rotated and deformed to give it a unique shape. (Note: the shape and color of the object is the same as in the example provided by the documentation.)
 The object looks like it's shining brightly, but the surface underneath it isn't lit up:
 
-[Emissive Shape]
+![Emissive Object](Emissive Object.png)
 
 We can simulate the object being lit up by adding small light sources along its length. This is what the code looks like when we add this, and remove the object's emission characteristic:
 ```
@@ -131,7 +132,7 @@ We can simulate the object being lit up by adding small light sources along its 
 ```
 The result is a shape that doesn't appear lit up, but does appear to have an effect on it's environment:
 
-[Shape with Lighting]
+![Object with Lighting](Object with Lighting.png)
 
 We can combine the two effects to make it look as though the shape is lit up properly:
 ```
@@ -149,38 +150,7 @@ We can combine the two effects to make it look as though the shape is lit up pro
                     (rotate-x 90)
                     (bend 135 (interval -1 1)))))
 ```
-[Lit up Shape]
-
-<!--
-Write what you did!
-Remember that this report must include:
-
-* a narrative of what you did
-* highlights of code that you wrote, with explanation
-* output from your code demonstrating what it produced
-* at least one diagram or figure showing your work
-
-The narrative itself should be no longer than 350 words. Yes, you need at least one image (output, diagrams). Images must be embedded into this md file. We should not have to click a link to see it. This is github, handling files is awesome and easy!
-
-Code should be delivered in two ways:
-
-1. Full files should be added to your version of this repository.
-1. Key excerpts of your code should be copied into this .md file, formatted to look like code, and explained.
-
-Ask questions publicly in the email group.
-
-## How to Prepare and Submit this assignment
-
-1. To start, [**fork** this repository][forking]. 
-  2. (This assignment is just one README.md file, so you can edit it right in github)
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your report.
-1. Add your racket file to the repository. 
-1. Ensure your changes (report in md file, and added rkt file) are committed to your forked repository.
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-## Project Schedule
-This is the first part of a larger project. The final project schedule is [here][schedule]
--->
+![Lit-Up Object](Lit-Up Object.png)
 
 <!-- Links -->
 [schedule]: https://github.com/oplS16projects/FP-Schedule
