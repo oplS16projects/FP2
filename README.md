@@ -1,26 +1,11 @@
-# Final Project Assignment 2: Exploration (FP2)
-DUE Wednesday, March 23, 2016
 
-Exactly like Exploration 1: https://github.com/oplS16projects/FP1. Do a different library. Explore something different, either related or completely not. Try something else out. This is also an individual assignment. 
-Be sure to do your write up in the FP2 repository, and pull request against it to turn in.
+# My Library: Pict3D
+My name: Wesley Nuzzo
 
-During this assignment, start looking for teammates! Use the email list! 
-When posting on the email list, be sure to include:
-* what you're interested in doing
-* what libraries you looked at for FP1 and FP2
-* when you will be able to meet to work on project
+Pict is a library for creating 3-dimensional scenes.
+Unfortunately, the library seems have some problems with it that cause it to run poorly (or give incorrect results) on my computer, but I was able to get interesting and mostly successful results from my experiments with the library in spite of this.
 
-### The following libraries are not allowed for project explorations:
-* games/cards
-* racket/gui
-* racket/draw 
-
-You can still use these in your project, but you must explore different libraries for this assignment.
-
-##DELETE THIS AND EVERYTHING ABOVE IT BEFORE SUBMITTING
-
-## My Library: (library name here)
-My name:
+<!--
 Write what you did!
 Remember that this report must include:
 
@@ -49,6 +34,7 @@ Ask questions publicly in the email group.
 
 ## Project Schedule
 This is the first part of a larger project. The final project schedule is [here][schedule]
+-->
 
 <!-- Links -->
 [schedule]: https://github.com/oplS16projects/FP-Schedule
