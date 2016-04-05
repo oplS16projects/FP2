@@ -27,4 +27,5 @@ I then went on to see what other things I could do with the matrices.  I tried t
       #f))
 ```
 
-This would be needed to create the matrix multiplication function because the only time two matrices can be multiplied together if the number of columns in the first matrix is equal to the number of rows in the second matrix.
+This would be needed to create the matrix multiplication function because the only time two matrices can be multiplied together if the number of columns in the first matrix is equal to the number of rows in the second matrix.  The following picture is output of my work with the spmatrix library.
+![alt tag](https://github.com/HTDesjardins/FP2/blob/master/FP2.png)
