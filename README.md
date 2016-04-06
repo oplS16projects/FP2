@@ -8,13 +8,13 @@ My name: Ebenezer Ampadu
 
 ######lang racket######
 
-(require plot)
+`(require plot)`
 
-(plot (function cos (- pi) pi #:label "y = cos(x)"))
+`(plot (function cos (- pi) pi #:label "y = cos(x)"))`
 
-(plot (function sin (- pi) pi #:label "y = sin(x)"))
+`(plot (function sin (- pi) pi #:label "y = sin(x)"))`
 
-(plot (function tan 0 (/ pi 4) #:label "y = tan (x) "))
+`(plot (function tan 0 (/ pi 4) #:label "y = tan (x) "))`
 
 Output:
 
