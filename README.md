@@ -7,15 +7,14 @@ I picked 2htdp/image because it is closely related to my project. My original ch
 
 *code*
 
-; Above the rectangle
-; Triangles beside each other
-
-(above (overlay/offset (triangle 40 "solid" "red")
-                      80 0
-                      (triangle 40 "solid" "red"))
-       (rectangle 120 40 "solid" "dimgray"))
+    ; Above the rectangle
+    ; Triangles beside each other
+    (above (overlay/offset (triangle 40 "solid" "red");Left_T
+                          80 0 ;Values for offset
+                          (triangle 40 "solid" "red"));Right_T
+           (rectangle 120 40 "solid" "dimgray"))
        
-The hardest part about anything for me in scheme is setting up the procedures just right. By using above your first argument will be on top what ever the second argument is. What I find interesting is that you can put multiple shapes into the first argument and comes out the way you wanted to.
+The hardest part about anything for me in scheme is setting up the procedures just right. By using "above" your first argument will be on top what ever the second argument is. What I find interesting is that you can put multiple shapes into the first argument and comes out the way you wanted to.
 
 <img src="output.jpg">
 
