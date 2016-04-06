@@ -19,7 +19,14 @@ I played around with different sounds that could be created using Rsound. For th
  [looper <= (loop-ctr change-interval 1)]
  
   ```
-   This is the second noise that is on a loop. The loop and the frequency can be changed based on the values on the pitch. This runs on a high to low frequency.
+  This is the second noise that is on a loop. The loop and the frequency can be changed based on the values on the pitch. This runs on a high to low frequency.
+  
+  The output of the code is the following:
+  
+  ![alt text](https://raw.githubusercontent.com/lokeshmanchi/FP2/master/audiooutput.jpg)
+  It steps through the code and tell you when its playing a noise and when it stops.
+  
+   
 
 
 <!-- Links -->
